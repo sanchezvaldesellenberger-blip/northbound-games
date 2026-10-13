@@ -3,15 +3,16 @@
 The portfolio site for Northbound Games, a game studio of SideQuestDigital. Static files, no build step.
 Serve the folder over http (opening `index.html` as a file works for the arcade, but Deadzone needs http).
 
-The front page is a showreel: every game's live art crossfades behind the studio name, with the
-news feed, the games row and the studio hub below it. The Games page is a console home screen: the
-selected game runs live behind its info and a shelf of game tiles sits along the bottom (arrow keys,
-mouse, touch or a gamepad). The rest of the site is separate library pages. Pages slide between each other (cross-document view transitions in Chrome/Edge), and
-Q / E or a controller's LB / RB switch tabs. The inner pages share a header and footer that were generated
-once; if you change the top bar, update it in all seven files. Barlow + Barlow Semi Condensed, dark only. Tokens are at the top of `assets/css/site.css`.
+The look follows big studio sites (Respawn, KRAFTON, Raven): warm near-black, one accent (the gold of
+the logo's star), sharp corners, Big Shoulders Display capitals for statements and Inter for text.
+The front page opens on Deadzone's maps crossfading behind the studio statement, then the games
+(Deadzone as the flagship, the six arcade games below), the studio, news and a closing call to action.
+The Games page is the console launcher: the selected game runs live behind its info and a shelf of
+tiles sits along the bottom (arrow keys, mouse, touch or a gamepad). Every page shares the same nav
+and footer; if you change them, update all seven files. Tokens are at the top of `assets/css/site.css`.
 
 ```
-index.html               Front page: the showreel, What's new, the games row, Around the studio
+index.html               Front page: map hero, games (flagship and arcade), studio, news, call to action
 games.html               Games: the console launcher (full screen)
 deadzone.html            Deadzone game page: facts, map viewer, modes, features, update history
 about.html               About: the studio, Deadzone, how the games are made, SideQuestDigital
@@ -23,7 +24,7 @@ assets/brand/            logo cutouts from northbound_games_pfp.jpg, favicons, a
 assets/projects/         portfolio images (Deadzone screenshot, and deadzone/ map art from Deadzone Web's public/loading)
 assets/js/core.js        shared helpers, palette, season switch, and the WebAudio synth
 assets/js/runner.js      the game player: loop, input, particles, READY/GO intro, slow motion, high scores
-assets/js/site.js        showreel, feed, launcher shelf, live game art, gamepad browsing, map viewer, trophies, lab demo, snow
+assets/js/site.js        nav, front page hero and arcade grid, launcher shelf, live game art, gamepad, map viewer, trophies, lab demo, snow
 assets/js/games/*.js     one file per arcade game
 deadzone/                the offline Deadzone build (git-ignored, about 530 MB; see below)
 ```

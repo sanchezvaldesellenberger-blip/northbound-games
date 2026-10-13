@@ -1,212 +1,686 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Deadzone · Northbound Games</title>
-  <meta name="description" content="Deadzone is a 3D first-person shooter for the web browser by Northbound Games. Six maps, four modes and an offline edition you can play right here.">
-  <meta name="theme-color" content="#090b11">
-  <link rel="icon" href="assets/brand/favicon-64.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="assets/css/site.css">
-  <script>
-    (function () {
-      var q = (location.search.match(/[?&]season=(winter|default)/) || [])[1];
-      if (q ? q === 'winter' : new Date().getMonth() === 11) document.documentElement.classList.add('winter');
-    })();
-  </script>
-  <script defer src="assets/js/core.js"></script>
-  <script defer src="assets/js/site.js"></script>
-</head>
-<body class="page-body" data-page="deadzone">
-  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
-    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
-    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></symbol>
-    <symbol id="i-restart" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4.5H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5A3.5 3.5 0 0 0 8.5 11M16 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 13v4M8.5 20h7M10 17h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 5.5V5a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 5v8A1.5 1.5 0 0 0 6 14.5h.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
-    <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7 8h10a5 5 0 0 1 4.8 6.3l-.9 3.3a2.3 2.3 0 0 1-3.9 1L15 16.5H9l-2 2.1a2.3 2.3 0 0 1-3.9-1l-.9-3.3A5 5 0 0 1 7 8z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11v3M6.5 12.5h3M15.5 12h.01M17.5 13.5h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  </svg>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Deadzone · Northbound Games</title>
+    <meta
+      name="description"
+      content="Deadzone is a 3D first-person shooter for the web browser by Northbound Games. Six maps, four modes and an offline edition you can play right here."
+    />
+    <meta name="theme-color" content="#090b11" />
+    <link rel="icon" href="assets/brand/favicon-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <script>
+      (function () {
+        var q = (location.search.match(/[?&]season=(winter|default)/) || [])[1];
+        if (q ? q === "winter" : new Date().getMonth() === 11)
+          document.documentElement.classList.add("winter");
+      })();
+    </script>
+    <script defer src="assets/js/core.js"></script>
+    <script defer src="assets/js/site.js"></script>
+  </head>
+  <body class="page-body" data-page="deadzone">
+    <svg
+      class="sprite"
+      width="0"
+      height="0"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="i-play" viewBox="0 0 24 24">
+        <path d="M7 4.5v15l12-7.5z" fill="currentColor" />
+      </symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24">
+        <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor" />
+      </symbol>
+      <symbol id="i-restart" viewBox="0 0 24 24">
+        <path
+          d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4.5H9"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" />
+        <path
+          d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-sound-off" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" />
+        <path
+          d="M16 9.5l5 5M21 9.5l-5 5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24">
+        <path
+          d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path
+          d="M6 6l12 12M18 6L6 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24">
+        <path
+          d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5A3.5 3.5 0 0 0 8.5 11M16 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 13v4M8.5 20h7M10 17h4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path
+          d="M7 17L17 7M9 7h8v8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect
+          x="8.5"
+          y="8.5"
+          width="11"
+          height="11"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <path
+          d="M15.5 5.5V5a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 5v8A1.5 1.5 0 0 0 6 14.5h.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+      </symbol>
+      <symbol id="i-pad" viewBox="0 0 24 24">
+        <path
+          d="M7 8h10a5 5 0 0 1 4.8 6.3l-.9 3.3a2.3 2.3 0 0 1-3.9 1L15 16.5H9l-2 2.1a2.3 2.3 0 0 1-3.9-1l-.9-3.3A5 5 0 0 1 7 8z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8 11v3M6.5 12.5h3M15.5 12h.01M17.5 13.5h.01"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24">
+        <path
+          d="M9 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path
+          d="M4 7h16M4 12h16M4 17h16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-arrow-r" viewBox="0 0 24 24">
+        <path
+          d="M4 12h15M13 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="square"
+        />
+      </symbol>
+    </svg>
 
-  <a class="skip-link" href="#main">Skip to the content</a>
-  <header class="topbar">
-      <a class="brand" href="index.html" aria-label="Northbound Games home">
-        <img src="assets/brand/mark-cream.png" width="44" height="44" alt="">
-        <span>Northbound<small>Games</small></span>
-      </a>
-      <nav class="tabs" aria-label="Pages">
-        <a href="games.html">Games</a>
-        <a href="deadzone.html" aria-current="page">Deadzone</a>
-        <a href="about.html">About</a>
-        <a href="trophies.html">Trophies</a>
-        <a href="lab.html">Under the hood</a>
-        <a href="help.html">Help</a>
-      </nav>
-      <div class="status">
-        <a class="pill" href="trophies.html" aria-label="Trophies earned"><svg aria-hidden="true"><use href="#i-trophy"/></svg><span data-ach-count>0/8</span></a>
-        <span class="pad-ind" id="pad-ind" hidden title="Controller connected"><svg aria-hidden="true"><use href="#i-pad"/></svg></span>
-        <time class="clock" id="clock">--:--</time>
+    <a class="skip-link" href="#main">Skip to the content</a>
+    <header class="nav" id="nav">
+      <div class="nav-in">
+        <a class="brand" href="index.html" aria-label="Northbound Games home">
+          <img
+            src="assets/brand/mark-cream.png"
+            width="38"
+            height="38"
+            alt=""
+          />
+          <span>Northbound<small>Games</small></span>
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="games.html">Games</a>
+          <a href="deadzone.html" aria-current="page">Deadzone</a>
+          <a href="about.html">Studio</a>
+          <a href="index.html#news">News</a>
+          <a href="help.html">Help</a>
+        </nav>
+        <a class="btn btn-gold btn-sm nav-cta" href="games.html">Play now</a>
+        <button
+          class="nav-menu"
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <svg aria-hidden="true"><use href="#i-menu" /></svg>
+        </button>
       </div>
     </header>
 
-  <header class="game-hero">
-    <img class="game-hero-art" src="assets/projects/deadzone/halcyon.jpg" width="1280" height="720" alt="">
-    <div class="game-hero-copy">
-      <p class="eyebrow"><span class="row-code">NB-00</span>Flagship · First-person shooter</p>
-      <h1>Deadzone</h1>
-      <p class="game-hero-lede">A 3D first-person shooter built from scratch for the web browser. Six maps, four modes and bots that strafe, fire in bursts and call out what they see, with nothing to install.</p>
-      <ul class="game-badges">
-        <li class="status-dot">In development</li>
-        <li>Version 0.5</li>
-        <li>Desktop browser</li>
-        <li>Keyboard and mouse</li>
-      </ul>
-      <div class="game-hero-actions">
-        <a class="btn btn-white" href="deadzone/index.html" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg>Play the offline edition</a>
-        <a class="btn btn-line" href="#maps">See the maps</a>
-      </div>
-      <p class="game-hero-note">Opens in a new tab. The first visit downloads about 100 MB.</p>
-    </div>
-  </header>
-
-  <main class="library" id="main">
-    <section class="panel game-facts" aria-label="Game facts">
-      <dl class="facts">
-        <div><dt>Developer</dt><dd>Northbound Games</dd></div>
-        <div><dt>Genre</dt><dd>First-person shooter</dd></div>
-        <div><dt>Platform</dt><dd>Desktop web browser</dd></div>
-        <div><dt>Built with</dt><dd>Three.js, Rapier, Blender</dd></div>
-        <div><dt>Status</dt><dd>In development, version 0.5</dd></div>
-        <div><dt>On this site</dt><dd>Offline edition</dd></div>
-      </dl>
-    </section>
-
-    <section class="panel" id="maps" aria-labelledby="maps-title">
-      <header class="panel-head">
-        <div>
-          <p class="eyebrow">Six maps</p>
-          <h2 id="maps-title">Where you'll fight</h2>
-        </div>
-        <p class="panel-text">From a desert proving ground to a drowned village. Every map has windows to hold, flanks to loop and tight interiors to clear.</p>
-      </header>
-      <div class="map-viewer">
-        <figure class="map-stage">
-          <img id="map-img" src="assets/projects/deadzone/halcyon.jpg" width="1280" height="720" alt="The Halcyon map in Deadzone">
-          <figcaption>
-            <span class="map-tag" id="map-tag">MAP 01</span>
-            <strong id="map-name">Halcyon</strong>
-            <span id="map-blurb">A smart-home showcase street on a desert proving ground. Two houses face off across the cul-de-sac: hold the upstairs windows, push through the garages, or loop the backyards.</span>
-          </figcaption>
-        </figure>
-        <div class="map-thumbs" aria-label="Choose a map">
-          <button class="map-thumb" type="button" aria-pressed="true" data-src="assets/projects/deadzone/halcyon.jpg" data-tag="MAP 01" data-name="Halcyon" data-blurb="A smart-home showcase street on a desert proving ground. Two houses face off across the cul-de-sac: hold the upstairs windows, push through the garages, or loop the backyards."><img src="assets/projects/deadzone/halcyon.jpg" width="1280" height="720" alt="" loading="lazy"><span>01</span>Halcyon</button>
-          <button class="map-thumb" type="button" aria-pressed="false" data-src="assets/projects/deadzone/marlow-estate.jpg" data-tag="MAP 02" data-name="Marlow Estate" data-blurb="A wine estate abandoned on the last night of the harvest. Hold the villa and the courtyard, fight through the winery and its cellar, or push in from the village through the gatehouse and the breach."><img src="assets/projects/deadzone/marlow-estate.jpg" width="1280" height="720" alt="" loading="lazy"><span>02</span>Marlow Estate</button>
-          <button class="map-thumb" type="button" aria-pressed="false" data-src="assets/projects/deadzone/tidewall.jpg" data-tag="MAP 03" data-name="Tidewall" data-blurb="A harbour town behind a broken sea wall. Run the wall walk and the plank bridge over the breach, fight round the beached trawler in the flooded lower harbour, or hold the upper town&#x27;s windows over it."><img src="assets/projects/deadzone/tidewall.jpg" width="1280" height="720" alt="" loading="lazy"><span>03</span>Tidewall</button>
-          <button class="map-thumb" type="button" aria-pressed="false" data-src="assets/projects/deadzone/lot-9.jpg" data-tag="MAP 04" data-name="Lot 9" data-blurb="A film studio backlot abandoned mid-take. Fight down the western street, through the saloon, the bank and the sheriff&#x27;s cells where the false fronts have open backs, or through Sound Stage 9 and its catwalks."><img src="assets/projects/deadzone/lot-9.jpg" width="1280" height="720" alt="" loading="lazy"><span>04</span>Lot 9</button>
-          <button class="map-thumb" type="button" aria-pressed="false" data-src="assets/projects/deadzone/low-water.jpg" data-tag="MAP 05" data-name="Low Water" data-blurb="A village drowned for a reservoir, back in the air for the first time in 65 years. Fight through the pub, the school and the church, cross the river under the stone bridge, or go under the church through the crypt."><img src="assets/projects/deadzone/low-water.jpg" width="1280" height="720" alt="" loading="lazy"><span>05</span>Low Water</button>
-          <button class="map-thumb" type="button" aria-pressed="false" data-src="assets/projects/deadzone/hollis-pass.jpg" data-tag="MAP 06" data-name="Hollis Pass" data-blurb="A grand hotel at the top of a mountain pass, cut in half by an avalanche. Hold the top station, fight down the ski run, through the hotel&#x27;s lobby and wrecked dining hall, or along the snow gallery."><img src="assets/projects/deadzone/hollis-pass.jpg" width="1280" height="720" alt="" loading="lazy"><span>06</span>Hollis Pass</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="modes-title">
-      <header class="panel-head">
-        <div>
-          <p class="eyebrow">Four modes</p>
-          <h2 id="modes-title">How you'll play</h2>
-        </div>
-      </header>
-      <div class="cards">
-        <article class="card"><h3>Team deathmatch</h3><p>You and four allied bots against five hostiles. First team to 100, or the lead when 8 minutes run out.</p></article>
-        <article class="card"><h3>Search and destroy</h3><p>Plant or defuse at bomb sites A and B. One life per round, and the first team to 4 rounds wins.</p></article>
-        <article class="card"><h3>Domination</h3><p>Capture and hold flags A, B and C. First to 200 wins, and the sides swap at halftime.</p></article>
-        <article class="card"><h3>Free roam</h3><p>Any map to yourself, to learn the routes, the sightlines and every ledge you can climb.</p></article>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="feat-title">
-      <header class="panel-head">
-        <div>
-          <p class="eyebrow">Features</p>
-          <h2 id="feat-title">Built like a console shooter</h2>
-        </div>
-        <p class="panel-text">The parts that make it feel right, running in a browser tab.</p>
-      </header>
-      <ul class="feature-list">
-        <li><strong>Movement with momentum</strong><span>Sprint, a short punchy slide and mantling: vault low cover and fences, or climb ledges up to about 2.1 m.</span></li>
-        <li><strong>Sixteen guns</strong><span>Assault rifles, SMGs, shotguns, LMGs, sniper rifles and pistols, from the MK9 Wasp to the LR-7 Sentinel, with optics, suppressors, foregrips and extended mags.</span></li>
-        <li><strong>Equipment</strong><span>Frag grenades and throwing knives, flashbangs and smoke.</span></li>
-        <li><strong>Bots that play the map</strong><span>They path across every map, react with a human delay, strafe, reload and share sightings with their team.</span></li>
-        <li><strong>Physics and hands</strong><span>Operators fall as jointed ragdolls, and fingers grip each weapon by its real surface through every reload.</span></li>
-        <li><strong>Real rendering</strong><span>Sun shadows, ambient occlusion, bloom and a film grade, with four quality presets from Performance to Ultra.</span></li>
-      </ul>
-    </section>
-
-    <section class="panel feature" aria-labelledby="yard-title">
-      <div class="feature-art"><img src="assets/projects/deadzone/range.jpg" width="1280" height="720" alt="The Yard, Deadzone's indoor training facility, with firing lanes and targets" loading="lazy"></div>
-      <div class="feature-copy">
-        <p class="eyebrow">Training</p>
-        <h2 id="yard-title">The Yard</h2>
-        <p class="panel-text">An indoor training facility with firing lanes and nine target operators. Try every weapon and attachment before you drop into a match.</p>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="notes-title">
-      <header class="panel-head">
-        <div>
-          <p class="eyebrow">Development</p>
-          <h2 id="notes-title">Update history</h2>
-        </div>
-        <p class="panel-text">Deadzone is built in the open, one version at a time.</p>
-      </header>
-      <ol class="updates">
-        <li><span class="ver">0.5<em>Latest</em></span><div><strong>Home screen, movement, grips and animation</strong><p>A lobby with your operator on a lit stage. Faster, tighter movement with a landing slowdown that stops bunny-hopping. Mantling over cover and up ledges. Fingers that grip each weapon's real surface, and new crouch animation authored in Blender.</p></div></li>
-        <li><span class="ver">0.4</span><div><strong>Rendering, controls and HUD</strong><p>Bots that path, strafe and share sightings. Sky, sun shadows, ambient occlusion and bloom with four quality presets. Raw mouse input, an FOV slider and ADS sensitivity. A new HUD with a killfeed, minimap, hit markers and a killcam.</p></div></li>
-        <li><span class="ver">0.3</span><div><strong>Movement, weapon handling and death</strong><p>Momentum movement and the slide. Sleeves and gloved hands that move with the weapon and animate every reload. Operators that fall as physics ragdolls.</p></div></li>
-        <li><span class="ver">0.2</span><div><strong>Original characters and an expanded Yard</strong><p>Recon, Breacher and Sentry, original modular soldiers with their own equipment. A bigger Yard with the Foundry, a control room and a water tower.</p></div></li>
-      </ol>
-    </section>
-
-    <section class="panel contact" aria-labelledby="play-title">
-      <div>
-        <p class="eyebrow">Offline edition</p>
-        <h2 id="play-title">Play it in your browser</h2>
-        <p class="panel-text">Bot matches on all six maps, free roam and The Yard. Online multiplayer is part of the full version and isn't included here.</p>
-      </div>
-      <div>
-        <ul class="reqs">
-          <li><span>Browser</span>Desktop Chrome or Edge</li>
-          <li><span>Controls</span>Keyboard and mouse</li>
-          <li><span>Download</span>About 100 MB on the first visit</li>
-          <li><span>Internet</span>Not needed once it has loaded</li>
+    <header class="game-hero">
+      <img
+        class="game-hero-art"
+        src="assets/projects/deadzone/halcyon.jpg"
+        width="1280"
+        height="720"
+        alt=""
+      />
+      <div class="game-hero-copy">
+        <p class="eyebrow">
+          <span class="row-code">NB-00</span>Flagship · First-person shooter
+        </p>
+        <h1>Deadzone</h1>
+        <p class="game-hero-lede">
+          A 3D first-person shooter built from scratch for the web browser. Six
+          maps, four modes and bots that strafe, fire in bursts and call out
+          what they see, with nothing to install.
+        </p>
+        <ul class="game-badges">
+          <li class="status-dot">In development</li>
+          <li>Version 0.5</li>
+          <li>Desktop browser</li>
+          <li>Keyboard and mouse</li>
         </ul>
-        <a class="btn btn-white" href="deadzone/index.html" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg>Play the offline edition</a>
+        <div class="game-hero-actions">
+          <a
+            class="btn btn-white"
+            href="deadzone/index.html"
+            target="_blank"
+            rel="noopener"
+            ><svg aria-hidden="true"><use href="#i-play" /></svg>Play the
+            offline edition</a
+          >
+          <a class="btn btn-line" href="#maps">See the maps</a>
+        </div>
+        <p class="game-hero-note">
+          Opens in a new tab. The first visit downloads about 100 MB.
+        </p>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <a class="brand" href="index.html" aria-label="Northbound Games home">
-        <img src="assets/brand/mark-cream.png" width="40" height="40" alt="">
-        <span>Northbound<small>Games</small></span>
-      </a>
-      <p>Northbound Games is a game studio of <a href="https://sidequestdigital.net" target="_blank" rel="noopener">SideQuestDigital</a> · <a href="https://sidequestdigital.net" target="_blank" rel="noopener">sidequestdigital.net</a> · <a href="mailto:sanchez@sidequestdigital.net">sanchez@sidequestdigital.net</a></p>
-      <p class="footer-small"><span>© <span id="year">2026</span> Northbound Games</span><span class="tab-hint"><kbd>Q</kbd><kbd>E</kbd> or <kbd>LB</kbd><kbd>RB</kbd> switch tabs</span><span class="konami" title="An old cheat code still works here">↑↑↓↓←→←→BA</span></p>
-    </div>
-    <p class="footer-mark" aria-hidden="true">Northbound</p>
-  </footer>
+    <main class="library" id="main">
+      <section class="panel game-facts" aria-label="Game facts">
+        <dl class="facts">
+          <div>
+            <dt>Developer</dt>
+            <dd>Northbound Games</dd>
+          </div>
+          <div>
+            <dt>Genre</dt>
+            <dd>First-person shooter</dd>
+          </div>
+          <div>
+            <dt>Platform</dt>
+            <dd>Desktop web browser</dd>
+          </div>
+          <div>
+            <dt>Built with</dt>
+            <dd>Three.js, Rapier, Blender</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>In development, version 0.5</dd>
+          </div>
+          <div>
+            <dt>On this site</dt>
+            <dd>Offline edition</dd>
+          </div>
+        </dl>
+      </section>
 
-  <canvas class="snow" id="snow" aria-hidden="true" hidden></canvas>
-  <div class="toasts" id="toasts" aria-live="polite"></div>
-</body>
+      <section class="panel" id="maps" aria-labelledby="maps-title">
+        <header class="panel-head">
+          <div>
+            <p class="eyebrow">Six maps</p>
+            <h2 id="maps-title">Where you'll fight</h2>
+          </div>
+          <p class="panel-text">
+            From a desert proving ground to a drowned village. Every map has
+            windows to hold, flanks to loop and tight interiors to clear.
+          </p>
+        </header>
+        <div class="map-viewer">
+          <figure class="map-stage">
+            <img
+              id="map-img"
+              src="assets/projects/deadzone/halcyon.jpg"
+              width="1280"
+              height="720"
+              alt="The Halcyon map in Deadzone"
+            />
+            <figcaption>
+              <span class="map-tag" id="map-tag">MAP 01</span>
+              <strong id="map-name">Halcyon</strong>
+              <span id="map-blurb"
+                >A smart-home showcase street on a desert proving ground. Two
+                houses face off across the cul-de-sac: hold the upstairs
+                windows, push through the garages, or loop the backyards.</span
+              >
+            </figcaption>
+          </figure>
+          <div class="map-thumbs" aria-label="Choose a map">
+            <button
+              class="map-thumb"
+              type="button"
+              aria-pressed="true"
+              data-src="assets/projects/deadzone/halcyon.jpg"
+              data-tag="MAP 01"
+              data-name="Halcyon"
+              data-blurb="A smart-home showcase street on a desert proving ground. Two houses face off across the cul-de-sac: hold the upstairs windows, push through the garages, or loop the backyards."
+            >
+              <img
+                src="assets/projects/deadzone/halcyon.jpg"
+                width="1280"
+                height="720"
+                alt=""
+                loading="lazy"
+              /><span>01</span>Halcyon
+            </button>
+            <button
+              class="map-thumb"
+              type="button"
+              aria-pressed="false"
+              data-src="assets/projects/deadzone/marlow-estate.jpg"
+              data-tag="MAP 02"
+              data-name="Marlow Estate"
+              data-blurb="A wine estate abandoned on the last night of the harvest. Hold the villa and the courtyard, fight through the winery and its cellar, or push in from the village through the gatehouse and the breach."
+            >
+              <img
+                src="assets/projects/deadzone/marlow-estate.jpg"
+                width="1280"
+                height="720"
+                alt=""
+                loading="lazy"
+              /><span>02</span>Marlow Estate
+            </button>
+            <button
+              class="map-thumb"
+              type="button"
+              aria-pressed="false"
+              data-src="assets/projects/deadzone/tidewall.jpg"
+              data-tag="MAP 03"
+              data-name="Tidewall"
+              data-blurb="A harbour town behind a broken sea wall. Run the wall walk and the plank bridge over the breach, fight round the beached trawler in the flooded lower harbour, or hold the upper town&#x27;s windows over it."
+            >
+              <img
+                src="assets/projects/deadzone/tidewall.jpg"
+                width="1280"
+                height="720"
+                alt=""
+                loading="lazy"
+              /><span>03</span>Tidewall
+            </button>
+            <button
+              class="map-thumb"
+              type="button"
+              aria-pressed="false"
+              data-src="assets/projects/deadzone/lot-9.jpg"
+              data-tag="MAP 04"
+              data-name="Lot 9"
+              data-blurb="A film studio backlot abandoned mid-take. Fight down the western street, through the saloon, the bank and the sheriff&#x27;s cells where the false fronts have open backs, or through Sound Stage 9 and its catwalks."
+            >
+              <img
+                src="assets/projects/deadzone/lot-9.jpg"
+                width="1280"
+                height="720"
+                alt=""
+                loading="lazy"
+              /><span>04</span>Lot 9
+            </button>
+            <button
+              class="map-thumb"
+              type="button"
+              aria-pressed="false"
+              data-src="assets/projects/deadzone/low-water.jpg"
+              data-tag="MAP 05"
+              data-name="Low Water"
+              data-blurb="A village drowned for a reservoir, back in the air for the first time in 65 years. Fight through the pub, the school and the church, cross the river under the stone bridge, or go under the church through the crypt."
+            >
+              <img
+                src="assets/projects/deadzone/low-water.jpg"
+                width="1280"
+                height="720"
+                alt=""
+                loading="lazy"
+              /><span>05</span>Low Water
+            </button>
+            <button
+              class="map-thumb"
+              type="button"
+              aria-pressed="false"
+              data-src="assets/projects/deadzone/hollis-pass.jpg"
+              data-tag="MAP 06"
+              data-name="Hollis Pass"
+              data-blurb="A grand hotel at the top of a mountain pass, cut in half by an avalanche. Hold the top station, fight down the ski run, through the hotel&#x27;s lobby and wrecked dining hall, or along the snow gallery."
+            >
+              <img
+                src="assets/projects/deadzone/hollis-pass.jpg"
+                width="1280"
+                height="720"
+                alt=""
+                loading="lazy"
+              /><span>06</span>Hollis Pass
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="modes-title">
+        <header class="panel-head">
+          <div>
+            <p class="eyebrow">Four modes</p>
+            <h2 id="modes-title">How you'll play</h2>
+          </div>
+        </header>
+        <div class="cards">
+          <article class="card">
+            <h3>Team deathmatch</h3>
+            <p>
+              You and four allied bots against five hostiles. First team to 100,
+              or the lead when 8 minutes run out.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Search and destroy</h3>
+            <p>
+              Plant or defuse at bomb sites A and B. One life per round, and the
+              first team to 4 rounds wins.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Domination</h3>
+            <p>
+              Capture and hold flags A, B and C. First to 200 wins, and the
+              sides swap at halftime.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Free roam</h3>
+            <p>
+              Any map to yourself, to learn the routes, the sightlines and every
+              ledge you can climb.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="feat-title">
+        <header class="panel-head">
+          <div>
+            <p class="eyebrow">Features</p>
+            <h2 id="feat-title">Built like a console shooter</h2>
+          </div>
+          <p class="panel-text">
+            The parts that make it feel right, running in a browser tab.
+          </p>
+        </header>
+        <ul class="feature-list">
+          <li>
+            <strong>Movement with momentum</strong
+            ><span
+              >Sprint, a short punchy slide and mantling: vault low cover and
+              fences, or climb ledges up to about 2.1 m.</span
+            >
+          </li>
+          <li>
+            <strong>Sixteen guns</strong
+            ><span
+              >Assault rifles, SMGs, shotguns, LMGs, sniper rifles and pistols,
+              from the MK9 Wasp to the LR-7 Sentinel, with optics, suppressors,
+              foregrips and extended mags.</span
+            >
+          </li>
+          <li>
+            <strong>Equipment</strong
+            ><span
+              >Frag grenades and throwing knives, flashbangs and smoke.</span
+            >
+          </li>
+          <li>
+            <strong>Bots that play the map</strong
+            ><span
+              >They path across every map, react with a human delay, strafe,
+              reload and share sightings with their team.</span
+            >
+          </li>
+          <li>
+            <strong>Physics and hands</strong
+            ><span
+              >Operators fall as jointed ragdolls, and fingers grip each weapon
+              by its real surface through every reload.</span
+            >
+          </li>
+          <li>
+            <strong>Real rendering</strong
+            ><span
+              >Sun shadows, ambient occlusion, bloom and a film grade, with four
+              quality presets from Performance to Ultra.</span
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel feature" aria-labelledby="yard-title">
+        <div class="feature-art">
+          <img
+            src="assets/projects/deadzone/range.jpg"
+            width="1280"
+            height="720"
+            alt="The Yard, Deadzone's indoor training facility, with firing lanes and targets"
+            loading="lazy"
+          />
+        </div>
+        <div class="feature-copy">
+          <p class="eyebrow">Training</p>
+          <h2 id="yard-title">The Yard</h2>
+          <p class="panel-text">
+            An indoor training facility with firing lanes and nine target
+            operators. Try every weapon and attachment before you drop into a
+            match.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="notes-title">
+        <header class="panel-head">
+          <div>
+            <p class="eyebrow">Development</p>
+            <h2 id="notes-title">Update history</h2>
+          </div>
+          <p class="panel-text">
+            Deadzone is built in the open, one version at a time.
+          </p>
+        </header>
+        <ol class="updates">
+          <li>
+            <span class="ver">0.5<em>Latest</em></span>
+            <div>
+              <strong>Home screen, movement, grips and animation</strong>
+              <p>
+                A lobby with your operator on a lit stage. Faster, tighter
+                movement with a landing slowdown that stops bunny-hopping.
+                Mantling over cover and up ledges. Fingers that grip each
+                weapon's real surface, and new crouch animation authored in
+                Blender.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="ver">0.4</span>
+            <div>
+              <strong>Rendering, controls and HUD</strong>
+              <p>
+                Bots that path, strafe and share sightings. Sky, sun shadows,
+                ambient occlusion and bloom with four quality presets. Raw mouse
+                input, an FOV slider and ADS sensitivity. A new HUD with a
+                killfeed, minimap, hit markers and a killcam.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="ver">0.3</span>
+            <div>
+              <strong>Movement, weapon handling and death</strong>
+              <p>
+                Momentum movement and the slide. Sleeves and gloved hands that
+                move with the weapon and animate every reload. Operators that
+                fall as physics ragdolls.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="ver">0.2</span>
+            <div>
+              <strong>Original characters and an expanded Yard</strong>
+              <p>
+                Recon, Breacher and Sentry, original modular soldiers with their
+                own equipment. A bigger Yard with the Foundry, a control room
+                and a water tower.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel contact" aria-labelledby="play-title">
+        <div>
+          <p class="eyebrow">Offline edition</p>
+          <h2 id="play-title">Play it in your browser</h2>
+          <p class="panel-text">
+            Bot matches on all six maps, free roam and The Yard. Online
+            multiplayer is part of the full version and isn't included here.
+          </p>
+        </div>
+        <div>
+          <ul class="reqs">
+            <li><span>Browser</span>Desktop Chrome or Edge</li>
+            <li><span>Controls</span>Keyboard and mouse</li>
+            <li><span>Download</span>About 100 MB on the first visit</li>
+            <li><span>Internet</span>Not needed once it has loaded</li>
+          </ul>
+          <a
+            class="btn btn-white"
+            href="deadzone/index.html"
+            target="_blank"
+            rel="noopener"
+            ><svg aria-hidden="true"><use href="#i-play" /></svg>Play the
+            offline edition</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-in">
+        <div class="foot-brand">
+          <a class="brand" href="index.html" aria-label="Northbound Games home">
+            <img
+              src="assets/brand/mark-cream.png"
+              width="38"
+              height="38"
+              alt=""
+            />
+            <span>Northbound<small>Games</small></span>
+          </a>
+          <p>
+            Northbound Games is a game studio of
+            <a
+              href="https://sidequestdigital.net"
+              target="_blank"
+              rel="noopener"
+              >SideQuestDigital</a
+            >, making original games for the web browser.
+          </p>
+        </div>
+        <nav class="foot-col" aria-label="Games">
+          <h2>Games</h2>
+          <a href="deadzone.html">Deadzone</a>
+          <a href="games.html">Arcade</a>
+          <a href="games.html">Play in your browser</a>
+        </nav>
+        <nav class="foot-col" aria-label="Studio">
+          <h2>Studio</h2>
+          <a href="about.html">About</a>
+          <a href="index.html#news">News</a>
+          <a href="help.html">Help</a>
+        </nav>
+        <nav class="foot-col" aria-label="Extras">
+          <h2>Extras</h2>
+          <a href="trophies.html">Trophies</a>
+          <a href="lab.html">Under the hood</a>
+        </nav>
+        <div class="foot-col">
+          <h2>Contact</h2>
+          <a href="mailto:sanchez@sidequestdigital.net"
+            >sanchez@sidequestdigital.net</a
+          >
+          <a href="https://sidequestdigital.net" target="_blank" rel="noopener"
+            >sidequestdigital.net</a
+          >
+        </div>
+      </div>
+      <div class="foot-base">
+        <span
+          >© <span id="year">2026</span> Northbound Games. A SideQuestDigital
+          studio.</span
+        >
+        <span>Made for the browser.</span>
+      </div>
+    </footer>
+
+    <canvas class="snow" id="snow" aria-hidden="true" hidden></canvas>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+  </body>
 </html>

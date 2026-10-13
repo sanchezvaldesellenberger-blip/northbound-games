@@ -1,253 +1,617 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Northbound Games · Game studio</title>
-  <meta name="description" content="Northbound Games is a game studio of SideQuestDigital. A portfolio of polished, instant-play browser games, plus the offline edition of Deadzone.">
-  <meta name="theme-color" content="#090b11">
-  <meta property="og:title" content="Northbound Games">
-  <meta property="og:description" content="Northbound Games is a game studio making premium games for the web browser. Part of SideQuestDigital.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Northbound Games">
-  <meta property="og:image" content="assets/brand/badge-cream.png">
-  <link rel="icon" href="assets/brand/favicon-64.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="assets/css/site.css">
-  <script>
-    /* Season before first paint: winter runs through December; ?season=winter previews it. */
-    (function () {
-      var q = (location.search.match(/[?&]season=(winter|default)/) || [])[1];
-      if (q ? q === 'winter' : new Date().getMonth() === 11) document.documentElement.classList.add('winter');
-      /* Boot screen: once per browser session, skipped for deep links; ?boot replays it. */
-      try {
-        if (/[?&]boot/.test(location.search) || (!sessionStorage.getItem('nb.booted') && !location.hash)) document.documentElement.classList.add('booting');
-      } catch (e) { /* storage blocked: skip the boot screen */ }
-    })();
-  </script>
-  <script defer src="assets/js/core.js"></script>
-  <script defer src="assets/js/games/polaris-drift.js"></script>
-  <script defer src="assets/js/games/aurora-stack.js"></script>
-  <script defer src="assets/js/games/glacier-breaker.js"></script>
-  <script defer src="assets/js/games/constellation.js"></script>
-  <script defer src="assets/js/games/tundra-dash.js"></script>
-  <script defer src="assets/js/games/halo-orbit.js"></script>
-  <script defer src="assets/js/runner.js"></script>
-  <script defer src="assets/js/site.js"></script>
-</head>
-<body>
-  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
-    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
-    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></symbol>
-    <symbol id="i-restart" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4.5H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5A3.5 3.5 0 0 0 8.5 11M16 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 13v4M8.5 20h7M10 17h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 5.5V5a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 5v8A1.5 1.5 0 0 0 6 14.5h.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
-    <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7 8h10a5 5 0 0 1 4.8 6.3l-.9 3.3a2.3 2.3 0 0 1-3.9 1L15 16.5H9l-2 2.1a2.3 2.3 0 0 1-3.9-1l-.9-3.3A5 5 0 0 1 7 8z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11v3M6.5 12.5h3M15.5 12h.01M17.5 13.5h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  </svg>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Northbound Games · Game studio</title>
+    <meta
+      name="description"
+      content="Northbound Games is a game studio of SideQuestDigital. A portfolio of polished, instant-play browser games, plus the offline edition of Deadzone."
+    />
+    <meta name="theme-color" content="#090b11" />
+    <meta property="og:title" content="Northbound Games" />
+    <meta
+      property="og:description"
+      content="Northbound Games is a game studio making premium games for the web browser. Part of SideQuestDigital."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Northbound Games" />
+    <meta property="og:image" content="assets/brand/badge-cream.png" />
+    <link rel="icon" href="assets/brand/favicon-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <script>
+      /* Season before first paint: winter runs through December; ?season=winter previews it. */
+      (function () {
+        var q = (location.search.match(/[?&]season=(winter|default)/) || [])[1];
+        if (q ? q === "winter" : new Date().getMonth() === 11)
+          document.documentElement.classList.add("winter");
+      })();
+    </script>
+    <script defer src="assets/js/core.js"></script>
+    <script defer src="assets/js/games/polaris-drift.js"></script>
+    <script defer src="assets/js/games/aurora-stack.js"></script>
+    <script defer src="assets/js/games/glacier-breaker.js"></script>
+    <script defer src="assets/js/games/constellation.js"></script>
+    <script defer src="assets/js/games/tundra-dash.js"></script>
+    <script defer src="assets/js/games/halo-orbit.js"></script>
+    <script defer src="assets/js/runner.js"></script>
+    <script defer src="assets/js/site.js"></script>
+  </head>
+  <body>
+    <svg
+      class="sprite"
+      width="0"
+      height="0"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="i-play" viewBox="0 0 24 24">
+        <path d="M7 4.5v15l12-7.5z" fill="currentColor" />
+      </symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24">
+        <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor" />
+      </symbol>
+      <symbol id="i-restart" viewBox="0 0 24 24">
+        <path
+          d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4.5H9"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" />
+        <path
+          d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-sound-off" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" />
+        <path
+          d="M16 9.5l5 5M21 9.5l-5 5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24">
+        <path
+          d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path
+          d="M6 6l12 12M18 6L6 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24">
+        <path
+          d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5A3.5 3.5 0 0 0 8.5 11M16 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 13v4M8.5 20h7M10 17h4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path
+          d="M7 17L17 7M9 7h8v8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect
+          x="8.5"
+          y="8.5"
+          width="11"
+          height="11"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <path
+          d="M15.5 5.5V5a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 5v8A1.5 1.5 0 0 0 6 14.5h.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+      </symbol>
+      <symbol id="i-pad" viewBox="0 0 24 24">
+        <path
+          d="M7 8h10a5 5 0 0 1 4.8 6.3l-.9 3.3a2.3 2.3 0 0 1-3.9 1L15 16.5H9l-2 2.1a2.3 2.3 0 0 1-3.9-1l-.9-3.3A5 5 0 0 1 7 8z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8 11v3M6.5 12.5h3M15.5 12h.01M17.5 13.5h.01"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24">
+        <path
+          d="M9 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path
+          d="M4 7h16M4 12h16M4 17h16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-arrow-r" viewBox="0 0 24 24">
+        <path
+          d="M4 12h15M13 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="square"
+        />
+      </symbol>
+    </svg>
 
-  <!-- ===== Boot screen: first visit each session ===== -->
-  <div class="boot" id="boot" role="dialog" aria-label="Northbound Games">
-    <div class="boot-logo">
-      <img src="assets/brand/badge-cream.png" width="720" height="718" alt="Northbound Games">
-      <i class="boot-star" aria-hidden="true"></i>
-    </div>
-    <p class="boot-kind">Game studio</p>
-    <p class="boot-sub">Premium games for the web browser · Part of SideQuestDigital</p>
-    <p class="boot-press" id="boot-press">Press any button</p>
-    <button class="boot-skip" type="button" id="boot-skip">Skip</button>
-  </div>
-
-  <a class="skip-link" href="#feed">Skip to the content</a>
-
-  <!-- ===== Showreel ===== -->
-  <section class="reel" id="reel" aria-label="Northbound Games">
-    <div class="reel-bg" aria-hidden="true">
-      <div class="reel-layer"><img alt=""><canvas></canvas></div>
-      <div class="reel-layer"><img alt=""><canvas></canvas></div>
-      <span class="reel-scrim"></span>
-    </div>
-
-    <header class="topbar">
-      <a class="brand" href="index.html" aria-label="Northbound Games home">
-        <img src="assets/brand/mark-cream.png" width="44" height="44" alt="">
-        <span>Northbound<small>Games</small></span>
-      </a>
-      <nav class="tabs" aria-label="Pages">
-        <a href="games.html">Games</a>
-        <a href="deadzone.html">Deadzone</a>
-        <a href="about.html">About</a>
-        <a href="trophies.html">Trophies</a>
-        <a href="lab.html">Under the hood</a>
-        <a href="help.html">Help</a>
-      </nav>
-      <div class="status">
-        <a class="pill" href="trophies.html" aria-label="Trophies earned"><svg aria-hidden="true"><use href="#i-trophy"/></svg><span data-ach-count>0/8</span></a>
-        <button class="pill icon" type="button" data-mute aria-label="Turn sound off"><svg aria-hidden="true"><use href="#i-sound"/></svg></button>
-        <span class="pad-ind" id="pad-ind" hidden title="Controller connected"><svg aria-hidden="true"><use href="#i-pad"/></svg></span>
-        <time class="clock" id="clock">--:--</time>
+    <a class="skip-link" href="#main">Skip to the content</a>
+    <header class="nav" id="nav">
+      <div class="nav-in">
+        <a class="brand" href="index.html" aria-label="Northbound Games home">
+          <img
+            src="assets/brand/mark-cream.png"
+            width="38"
+            height="38"
+            alt=""
+          />
+          <span>Northbound<small>Games</small></span>
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="games.html">Games</a>
+          <a href="deadzone.html">Deadzone</a>
+          <a href="about.html">Studio</a>
+          <a href="index.html#news">News</a>
+          <a href="help.html">Help</a>
+        </nav>
+        <a class="btn btn-gold btn-sm nav-cta" href="games.html">Play now</a>
+        <button
+          class="nav-menu"
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <svg aria-hidden="true"><use href="#i-menu" /></svg>
+        </button>
       </div>
     </header>
 
-    <div class="reel-copy">
-      <p class="studio-line"><span>Game studio</span>Part of SideQuestDigital</p>
-      <h1 class="reel-title">Northbound<br>Games</h1>
-      <p class="reel-lede">We design, draw and code original games that start the moment a page loads. Six arcade games and a 3D shooter, all playable right here.</p>
-      <div class="reel-actions">
-        <a class="btn btn-white" href="games.html"><svg aria-hidden="true"><use href="#i-play"/></svg>Explore the games</a>
-        <a class="btn btn-line" href="deadzone.html">Meet Deadzone</a>
+    <section class="hero" id="reel" aria-label="Deadzone's maps">
+      <div class="hero-bg grain" aria-hidden="true">
+        <div class="hero-layer"><img class="graded" alt="" /></div>
+        <div class="hero-layer"><img class="graded" alt="" /></div>
+        <span class="hero-scrim"></span>
       </div>
-    </div>
-
-    <div class="reel-now">
-      <div class="reel-caption" aria-live="polite">
-        <span class="reel-code" id="reel-code">NB-00</span>
-        <span class="reel-label">Now showing</span>
-        <strong id="reel-name">Deadzone</strong>
-        <span class="reel-kind" id="reel-kind">Flagship · Offline edition</span>
-        <a class="reel-play" id="reel-play" href="deadzone.html">See the game</a>
+      <div class="hero-copy wrap">
+        <p class="label">Northbound Games <b>/</b> A SideQuestDigital studio</p>
+        <h1 class="display">We build <em>big</em> games for the browser.</h1>
+        <p class="lede">
+          Original games you play the moment the page loads. No downloads, no
+          installs, no accounts. Just the game.
+        </p>
+        <div class="actions">
+          <a class="btn btn-gold" href="deadzone.html">Discover Deadzone</a>
+          <a class="btn btn-ghost" href="#games">Our games</a>
+        </div>
       </div>
-      <div class="reel-controls">
-        <div class="reel-track" id="reel-track"></div>
-        <button class="reel-pause" type="button" id="reel-pause" aria-pressed="false" aria-label="Pause the showreel"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
-      </div>
-    </div>
-    <a class="reel-down" href="#feed" aria-label="More from the studio"><svg aria-hidden="true"><use href="#i-chev"/></svg></a>
-  </section>
-
-  <!-- ===== Home feed: news, recent games and the studio hub ===== -->
-  <div class="marquee" id="marquee" aria-hidden="true"><div class="marquee-track"></div></div>
-
-  <main class="library feed" id="feed">
-    <section class="row" aria-labelledby="news-title">
-      <header class="row-head">
-        <span class="row-code">01</span>
-        <h2 class="row-title" id="news-title">What's new</h2>
-        <span class="row-rule" aria-hidden="true"></span>
-      </header>
-      <div class="news" id="news"></div>
-    </section>
-
-    <section class="row" aria-labelledby="recent-title">
-      <header class="row-head">
-        <span class="row-code">02</span>
-        <h2 class="row-title" id="recent-title">Pick up and play</h2>
-        <span class="row-rule" aria-hidden="true"></span>
-        <a class="row-link" href="trophies.html">Your scores <svg aria-hidden="true"><use href="#i-chev"/></svg></a>
-      </header>
-      <div class="recent" id="recent"></div>
-    </section>
-
-    <section class="row" aria-labelledby="hub-title">
-      <header class="row-head">
-        <span class="row-code">03</span>
-        <h2 class="row-title" id="hub-title">Around the studio</h2>
-        <span class="row-rule" aria-hidden="true"></span>
-      </header>
-      <div class="hub">
-        <a class="hub-card hub-about" href="about.html">
-          <img src="assets/brand/badge-cream.png" width="720" height="718" alt="" loading="lazy">
-          <span class="hub-copy">
-            <span class="eyebrow">About</span>
-            <strong>Small studio. Big adventures.</strong>
-            <span>Every game here is designed, drawn and coded in-house by a game developer, as part of SideQuestDigital.</span>
-          </span>
-          <span class="hub-sign">Game developer <small>Founder, Northbound Games</small></span>
-          <svg class="hub-go" aria-hidden="true"><use href="#i-chev"/></svg>
-        </a>
-        <a class="hub-card" href="trophies.html" style="--c: var(--gold)">
-          <span class="eyebrow">Trophies</span>
-          <strong><span data-ach-count>0/8</span> earned</strong>
-          <span class="pips" id="hub-pips" aria-hidden="true"></span>
-          <span id="hub-next">Next up: start your first game.</span>
-          <svg class="hub-go" aria-hidden="true"><use href="#i-chev"/></svg>
-        </a>
-        <a class="hub-card hub-lab" href="lab.html" style="--c: #5ee6b0">
-          <canvas class="hub-ball" id="hub-ball" aria-hidden="true"></canvas>
-          <span class="eyebrow">Under the hood</span>
-          <strong>What makes a game feel premium</strong>
-          <span>Switch off the tricks behind every game and see the difference.</span>
-          <svg class="hub-go" aria-hidden="true"><use href="#i-chev"/></svg>
-        </a>
-        <a class="hub-card hub-help" href="help.html" style="--c: #ff8a6b">
-          <svg class="hub-pad" aria-hidden="true"><use href="#i-pad"/></svg>
-          <span class="eyebrow">Help</span>
-          <strong>Questions and contact</strong>
-          <span>Controllers, phones, Deadzone, and how to say hello.</span>
-          <svg class="hub-go" aria-hidden="true"><use href="#i-chev"/></svg>
-        </a>
+      <div class="hero-foot wrap">
+        <p class="hero-caption" aria-live="polite">
+          <span class="code" id="reel-code">Map 01</span
+          ><strong id="reel-name">Halcyon</strong
+          ><span class="kind">Deadzone · First-person shooter</span>
+        </p>
+        <span class="hero-count"><b id="reel-index">01</b> / 07</span>
+        <div class="hero-track">
+          <div class="hero-segs" id="reel-track"></div>
+          <button
+            class="hero-pause"
+            type="button"
+            id="reel-pause"
+            aria-pressed="false"
+            aria-label="Pause the slideshow"
+          >
+            <svg aria-hidden="true"><use href="#i-pause" /></svg>
+          </button>
+        </div>
       </div>
     </section>
-  </main>
 
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <a class="brand" href="#top" aria-label="Northbound Games home">
-        <img src="assets/brand/mark-cream.png" width="40" height="40" alt="">
-        <span>Northbound<small>Games</small></span>
-      </a>
-      <p>Northbound Games is a game studio of <a href="https://sidequestdigital.net" target="_blank" rel="noopener">SideQuestDigital</a> · <a href="https://sidequestdigital.net" target="_blank" rel="noopener">sidequestdigital.net</a> · <a href="mailto:sanchez@sidequestdigital.net">sanchez@sidequestdigital.net</a></p>
-      <p class="footer-small"><span>© <span id="year">2026</span> Northbound Games</span><span class="konami" title="An old cheat code still works here">↑↑↓↓←→←→BA</span></p>
-    </div>
-    <p class="footer-mark" aria-hidden="true">Northbound</p>
-  </footer>
-
-  <!-- Game player -->
-  <dialog class="player" id="player" aria-labelledby="pl-title">
-    <div class="pl-frame">
-      <header class="pl-bar">
-        <div class="pl-id">
-          <img src="assets/brand/mark-cream.png" width="32" height="32" alt="">
-          <h2 id="pl-title">Game</h2>
-          <span class="pl-tag" id="pl-tag">Arcade</span>
-        </div>
-        <div class="pl-scores">
-          <div><span>Score</span><b id="pl-score">0</b></div>
-          <div><span>Best</span><b id="pl-best">0</b></div>
-        </div>
-        <div class="pl-tools">
-          <button class="icon-btn" type="button" id="pl-pause" aria-label="Pause (P)"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
-          <button class="icon-btn hide-sm" type="button" id="pl-restart" aria-label="Restart (R)"><svg aria-hidden="true"><use href="#i-restart"/></svg></button>
-          <button class="icon-btn" type="button" data-mute aria-label="Turn sound off"><svg aria-hidden="true"><use href="#i-sound"/></svg></button>
-          <button class="icon-btn hide-sm" type="button" id="pl-fs" aria-label="Fullscreen"><svg aria-hidden="true"><use href="#i-expand"/></svg></button>
-          <button class="icon-btn" type="button" id="pl-close" aria-label="Close game (Esc)"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
-        </div>
-      </header>
-      <div class="pl-stage" id="pl-stage">
-        <div class="pl-screen" id="pl-screen">
-          <canvas id="pl-canvas" tabindex="0" aria-label="Game screen"></canvas>
-        </div>
-        <div class="pl-overlay" id="pl-overlay">
-          <div class="ov-card">
-            <p class="ov-kicker" id="ov-kicker"></p>
-            <h3 class="ov-title" id="ov-title"></h3>
-            <p class="ov-body" id="ov-body"></p>
-            <div class="ov-actions">
-              <button class="btn btn-white" type="button" id="ov-go">Play</button>
-              <button class="btn btn-line" type="button" id="ov-exit" hidden>Back to home</button>
+    <main id="main">
+      <section class="section" id="games" aria-labelledby="games-title">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="label"><b>01</b> Our games</p>
+              <h2 class="display-2" id="games-title">
+                Made to be played,<br />not downloaded.
+              </h2>
             </div>
-            <ul class="ov-controls" id="ov-controls"></ul>
+            <a class="link-arrow" href="games.html"
+              >All games <svg aria-hidden="true"><use href="#i-arrow-r" /></svg
+            ></a>
+          </header>
+          <a class="flagship" href="deadzone.html">
+            <img
+              class="graded"
+              src="assets/projects/deadzone/marlow-estate.jpg"
+              width="1280"
+              height="720"
+              alt="Deadzone's Marlow Estate map: a wine estate with a villa, a courtyard and a winery"
+              loading="lazy"
+            />
+            <div class="flagship-copy">
+              <ul class="meta">
+                <li>Flagship · In development</li>
+                <li>First-person shooter</li>
+                <li>Six maps</li>
+                <li>Desktop browser</li>
+              </ul>
+              <h3>Deadzone</h3>
+              <p class="lede">
+                A 3D first-person shooter built from scratch for the web. Four
+                modes, six maps and bots that play like a team, with an offline
+                edition you can play right now.
+              </p>
+              <span class="link-arrow"
+                >View the game
+                <svg aria-hidden="true"><use href="#i-arrow-r" /></svg
+              ></span>
+            </div>
+          </a>
+          <div class="sub-head">
+            <h3>Arcade</h3>
+            <p class="muted">
+              Six short games that open instantly, on any device.
+            </p>
+          </div>
+          <div class="arcade" id="arcade"></div>
+        </div>
+      </section>
+
+      <section class="section" id="studio" aria-labelledby="studio-title">
+        <div class="wrap studio-band">
+          <div class="stack">
+            <p class="label"><b>02</b> The studio</p>
+            <h2 class="display-2" id="studio-title">
+              Built for the web.<br />Made in-house.
+            </h2>
+          </div>
+          <div>
+            <p class="statement">
+              Northbound Games is the game studio of SideQuestDigital. Every
+              game here is designed, drawn and coded in-house, and built for the
+              one platform everyone already has: the browser.
+            </p>
+            <ul class="pillars">
+              <li>
+                <strong>Instant</strong
+                ><span
+                  >No downloads, no installs and no accounts. A link is all it
+                  takes.</span
+                >
+              </li>
+              <li>
+                <strong>Every input</strong
+                ><span
+                  >Keyboard, mouse, touch and game controllers, on desktop and
+                  phone.</span
+                >
+              </li>
+              <li>
+                <strong>Hand-made</strong
+                ><span
+                  >The arcade games draw every scene in code and synthesize
+                  every sound. Nothing to download first.</span
+                >
+              </li>
+            </ul>
+            <a class="link-arrow" href="about.html"
+              >About the studio
+              <svg aria-hidden="true"><use href="#i-arrow-r" /></svg
+            ></a>
           </div>
         </div>
-      </div>
-      <footer class="pl-foot">
-        <span class="pl-keys">P pause · R restart · M mute · Esc close · Controller: A action, Start pause</span>
-        <span class="pl-rotate">Turn your phone sideways for a bigger screen</span>
-      </footer>
-    </div>
-    <div class="toasts" aria-live="polite"></div>
-  </dialog>
+      </section>
 
-  <canvas class="snow" id="snow" aria-hidden="true" hidden></canvas>
-  <div class="toasts" id="toasts" aria-live="polite"></div>
-</body>
+      <section class="section" id="news" aria-labelledby="news-title">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="label"><b>03</b> News</p>
+              <h2 class="display-2" id="news-title">From the studio</h2>
+            </div>
+          </header>
+          <div class="news">
+            <a class="news-card" href="deadzone.html">
+              <span class="news-art"
+                ><img
+                  class="graded"
+                  src="assets/projects/deadzone-halcyon.jpg"
+                  width="1280"
+                  height="720"
+                  alt=""
+                  loading="lazy"
+              /></span>
+              <span class="news-meta"
+                ><span>Deadzone</span
+                ><time datetime="2026-10-12">Oct 12, 2026</time></span
+              >
+              <strong>The offline edition is live</strong>
+              <p>
+                Bot matches on all six maps, free roam and The Yard, playable in
+                your browser with nothing to install.
+              </p>
+            </a>
+            <a class="news-card" href="help.html">
+              <span class="news-art"
+                ><canvas data-game="glacier-breaker" aria-hidden="true"></canvas
+              ></span>
+              <span class="news-meta"
+                ><span>Update</span
+                ><time datetime="2026-10-12">Oct 12, 2026</time></span
+              >
+              <strong>Controllers welcome</strong>
+              <p>
+                Every arcade game and the Games page now work with a gamepad.
+                Browse with the d-pad and play with A.
+              </p>
+            </a>
+            <a class="news-card" id="news-winter" href="?season=winter">
+              <span class="news-art"
+                ><canvas
+                  data-game="tundra-dash"
+                  data-winter
+                  aria-hidden="true"
+                ></canvas
+              ></span>
+              <span class="news-meta"
+                ><span>Seasonal</span
+                ><time datetime="2026-12-01">Dec 1, 2026</time></span
+              >
+              <strong>Winter edition</strong>
+              <p>
+                Every arcade game gets new December art. Take a look ahead of
+                time.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="cta-title">
+        <img
+          class="graded"
+          src="assets/projects/deadzone/tidewall.jpg"
+          width="1280"
+          height="720"
+          alt=""
+          loading="lazy"
+        />
+        <div class="wrap">
+          <p class="label">Deadzone <b>/</b> Offline edition</p>
+          <h2 class="display-2" id="cta-title">Drop in. No download.</h2>
+          <p>
+            Desktop Chrome or Edge with a keyboard and mouse. The first visit
+            loads about 100 MB, then it plays without a connection.
+          </p>
+          <a
+            class="btn btn-gold"
+            href="deadzone/index.html"
+            target="_blank"
+            rel="noopener"
+            >Play Deadzone</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-in">
+        <div class="foot-brand">
+          <a class="brand" href="index.html" aria-label="Northbound Games home">
+            <img
+              src="assets/brand/mark-cream.png"
+              width="38"
+              height="38"
+              alt=""
+            />
+            <span>Northbound<small>Games</small></span>
+          </a>
+          <p>
+            Northbound Games is a game studio of
+            <a
+              href="https://sidequestdigital.net"
+              target="_blank"
+              rel="noopener"
+              >SideQuestDigital</a
+            >, making original games for the web browser.
+          </p>
+        </div>
+        <nav class="foot-col" aria-label="Games">
+          <h2>Games</h2>
+          <a href="deadzone.html">Deadzone</a>
+          <a href="games.html">Arcade</a>
+          <a href="games.html">Play in your browser</a>
+        </nav>
+        <nav class="foot-col" aria-label="Studio">
+          <h2>Studio</h2>
+          <a href="about.html">About</a>
+          <a href="index.html#news">News</a>
+          <a href="help.html">Help</a>
+        </nav>
+        <nav class="foot-col" aria-label="Extras">
+          <h2>Extras</h2>
+          <a href="trophies.html">Trophies</a>
+          <a href="lab.html">Under the hood</a>
+        </nav>
+        <div class="foot-col">
+          <h2>Contact</h2>
+          <a href="mailto:sanchez@sidequestdigital.net"
+            >sanchez@sidequestdigital.net</a
+          >
+          <a href="https://sidequestdigital.net" target="_blank" rel="noopener"
+            >sidequestdigital.net</a
+          >
+        </div>
+      </div>
+      <div class="foot-base">
+        <span
+          >© <span id="year">2026</span> Northbound Games. A SideQuestDigital
+          studio.</span
+        >
+        <span>Made for the browser.</span>
+      </div>
+    </footer>
+
+    <!-- Game player -->
+    <dialog class="player" id="player" aria-labelledby="pl-title">
+      <div class="pl-frame">
+        <header class="pl-bar">
+          <div class="pl-id">
+            <img
+              src="assets/brand/mark-cream.png"
+              width="32"
+              height="32"
+              alt=""
+            />
+            <h2 id="pl-title">Game</h2>
+            <span class="pl-tag" id="pl-tag">Arcade</span>
+          </div>
+          <div class="pl-scores">
+            <div><span>Score</span><b id="pl-score">0</b></div>
+            <div><span>Best</span><b id="pl-best">0</b></div>
+          </div>
+          <div class="pl-tools">
+            <button
+              class="icon-btn"
+              type="button"
+              id="pl-pause"
+              aria-label="Pause (P)"
+            >
+              <svg aria-hidden="true"><use href="#i-pause" /></svg>
+            </button>
+            <button
+              class="icon-btn hide-sm"
+              type="button"
+              id="pl-restart"
+              aria-label="Restart (R)"
+            >
+              <svg aria-hidden="true"><use href="#i-restart" /></svg>
+            </button>
+            <button
+              class="icon-btn"
+              type="button"
+              data-mute
+              aria-label="Turn sound off"
+            >
+              <svg aria-hidden="true"><use href="#i-sound" /></svg>
+            </button>
+            <button
+              class="icon-btn hide-sm"
+              type="button"
+              id="pl-fs"
+              aria-label="Fullscreen"
+            >
+              <svg aria-hidden="true"><use href="#i-expand" /></svg>
+            </button>
+            <button
+              class="icon-btn"
+              type="button"
+              id="pl-close"
+              aria-label="Close game (Esc)"
+            >
+              <svg aria-hidden="true"><use href="#i-close" /></svg>
+            </button>
+          </div>
+        </header>
+        <div class="pl-stage" id="pl-stage">
+          <div class="pl-screen" id="pl-screen">
+            <canvas
+              id="pl-canvas"
+              tabindex="0"
+              aria-label="Game screen"
+            ></canvas>
+          </div>
+          <div class="pl-overlay" id="pl-overlay">
+            <div class="ov-card">
+              <p class="ov-kicker" id="ov-kicker"></p>
+              <h3 class="ov-title" id="ov-title"></h3>
+              <p class="ov-body" id="ov-body"></p>
+              <div class="ov-actions">
+                <button class="btn btn-white" type="button" id="ov-go">
+                  Play
+                </button>
+                <button class="btn btn-line" type="button" id="ov-exit" hidden>
+                  Back to home
+                </button>
+              </div>
+              <ul class="ov-controls" id="ov-controls"></ul>
+            </div>
+          </div>
+        </div>
+        <footer class="pl-foot">
+          <span class="pl-keys"
+            >P pause · R restart · M mute · Esc close · Controller: A action,
+            Start pause</span
+          >
+          <span class="pl-rotate"
+            >Turn your phone sideways for a bigger screen</span
+          >
+        </footer>
+      </div>
+      <div class="toasts" aria-live="polite"></div>
+    </dialog>
+
+    <canvas class="snow" id="snow" aria-hidden="true" hidden></canvas>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+  </body>
 </html>
