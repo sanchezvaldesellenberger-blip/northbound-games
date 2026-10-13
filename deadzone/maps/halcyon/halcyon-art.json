@@ -1,0 +1,186 @@
+{
+ "geometryHash": "a95c6b87",
+ "props": {
+  "sedan": [
+   1.9,
+   1.45,
+   4.6
+  ],
+  "sedan-white": [
+   1.9,
+   1.45,
+   4.6
+  ],
+  "van": [
+   2.1,
+   2.5,
+   5.2
+  ],
+  "barrier": [
+   0.6,
+   0.85,
+   3
+  ],
+  "street-planter": [
+   1.6,
+   0.8,
+   1.6
+  ],
+  "streetlight": [
+   0.3,
+   5.5,
+   0.3
+  ],
+  "hydrant": [
+   0.4,
+   0.75,
+   0.4
+  ],
+  "mailbox": [
+   0.4,
+   1.15,
+   0.5
+  ],
+  "hoop": [
+   0.3,
+   3.05,
+   0.3
+  ],
+  "porch-roof": [
+   1.8,
+   0.15,
+   3.4
+  ],
+  "tree": [
+   0.45,
+   2.6,
+   0.45
+  ],
+  "hedge": [
+   4,
+   1.3,
+   0.9
+  ],
+  "ac-unit": [
+   0.9,
+   0.95,
+   0.9
+  ],
+  "bins": [
+   0.7,
+   1.1,
+   1.5
+  ],
+  "planter-box": [
+   2.6,
+   0.75,
+   1
+  ],
+  "garden-wall": [
+   3.5,
+   1,
+   0.4
+  ],
+  "doghouse": [
+   1,
+   1,
+   1.2
+  ],
+  "patio-set": [
+   1.4,
+   0.75,
+   1.4
+  ],
+  "grill": [
+   1.3,
+   1.1,
+   0.6
+  ],
+  "hot-tub": [
+   2.2,
+   0.9,
+   2.2
+  ],
+  "garden-bed": [
+   1.2,
+   0.5,
+   2.4
+  ],
+  "tv-console": [
+   1.8,
+   1.25,
+   0.45
+  ],
+  "coffee-table": [
+   1.1,
+   0.42,
+   0.6
+  ],
+  "sofa": [
+   2.2,
+   0.85,
+   0.95
+  ],
+  "counter": [
+   2.7,
+   0.95,
+   0.65
+  ],
+  "island": [
+   2,
+   0.95,
+   1
+  ],
+  "fridge": [
+   0.8,
+   1.9,
+   0.75
+  ],
+  "workbench": [
+   2.4,
+   0.95,
+   0.7
+  ],
+  "garage-shelf": [
+   1.6,
+   2,
+   0.5
+  ],
+  "crate": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "bed": [
+   1.6,
+   0.6,
+   2.1
+  ],
+  "dresser": [
+   1.2,
+   1,
+   0.5
+  ],
+  "bed-single": [
+   1,
+   0.55,
+   2
+  ],
+  "bookshelf": [
+   1.2,
+   2,
+   0.35
+  ],
+  "desk": [
+   1.4,
+   1.2,
+   0.65
+  ],
+  "box-truck": [
+   2.6,
+   3.2,
+   7.6
+  ]
+ },
+ "note": "Written by tools/blender/build_blockout_art.py. The game uses this art only while geometryHash matches the map data."
+}

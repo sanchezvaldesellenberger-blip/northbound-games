@@ -1,0 +1,28 @@
+{
+  "clips": [
+    {
+      "name": "Throw_Ready",
+      "file": "throw-ready.json"
+    },
+    {
+      "name": "Throw_HoldLow",
+      "file": "throw-hold-low.json"
+    },
+    {
+      "name": "Throw_Over",
+      "file": "throw-over.json"
+    },
+    {
+      "name": "Throw_Under",
+      "file": "throw-under.json"
+    },
+    {
+      "name": "Knife_Ready",
+      "file": "knife-ready.json"
+    },
+    {
+      "name": "Knife_Throw",
+      "file": "knife-throw.json"
+    }
+  ]
+}

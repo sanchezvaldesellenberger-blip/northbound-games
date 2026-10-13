@@ -1,0 +1,311 @@
+{
+ "geometryHash": "c1173d7c",
+ "props": {
+  "bar-long": [
+   6,
+   1.1,
+   0.8
+  ],
+  "back-bar": [
+   6,
+   2.2,
+   0.5
+  ],
+  "stools": [
+   5,
+   0.75,
+   0.45
+  ],
+  "piano": [
+   1.6,
+   1.3,
+   0.7
+  ],
+  "table-set": [
+   1.4,
+   0.75,
+   1.4
+  ],
+  "crate": [
+   1.2,
+   1.2,
+   1.2
+  ],
+  "u-bed": [
+   1.6,
+   0.6,
+   2.1
+  ],
+  "u-dresser": [
+   1.2,
+   1,
+   0.5
+  ],
+  "u-sofa": [
+   2.2,
+   0.85,
+   0.95
+  ],
+  "barrel": [
+   0.75,
+   1,
+   0.75
+  ],
+  "hay-bales": [
+   2.4,
+   1.2,
+   1.2
+  ],
+  "saddle-rack": [
+   2,
+   1.4,
+   0.5
+  ],
+  "loft-hay": [
+   2.4,
+   1.2,
+   1.2
+  ],
+  "p-bench": [
+   1.8,
+   0.9,
+   0.6
+  ],
+  "p-counter": [
+   2.4,
+   1.1,
+   0.6
+  ],
+  "loco": [
+   2.6,
+   4.2,
+   12
+  ],
+  "luggage-cart": [
+   1.2,
+   1.1,
+   2.2
+  ],
+  "hitch-rail": [
+   3,
+   1,
+   0.3
+  ],
+  "trough": [
+   2.2,
+   0.7,
+   0.6
+  ],
+  "wagon": [
+   2,
+   2.9,
+   4.5
+  ],
+  "gallows-frame": [
+   0.3,
+   2.8,
+   2.4
+  ],
+  "teller-counter": [
+   3.4,
+   1.15,
+   0.7
+  ],
+  "bench": [
+   1.8,
+   0.9,
+   0.6
+  ],
+  "writing-desk": [
+   1.4,
+   0.8,
+   0.65
+  ],
+  "bookshelf": [
+   1.2,
+   2,
+   0.35
+  ],
+  "safe": [
+   0.8,
+   1.2,
+   0.8
+  ],
+  "deposit-wall": [
+   4.45,
+   2.2,
+   0.5
+  ],
+  "lockers": [
+   1.6,
+   2,
+   0.5
+  ],
+  "cot": [
+   1,
+   0.55,
+   2
+  ],
+  "generator": [
+   2,
+   2.2,
+   3.4
+  ],
+  "cable-spool": [
+   1.4,
+   1,
+   1.4
+  ],
+  "road-case": [
+   1.2,
+   1,
+   0.8
+  ],
+  "light-stand": [
+   0.6,
+   2.8,
+   0.6
+  ],
+  "directors-chairs": [
+   1.6,
+   1.1,
+   0.6
+  ],
+  "monitor-cart": [
+   0.8,
+   1.5,
+   0.6
+  ],
+  "trailer": [
+   2.6,
+   3.2,
+   8.5
+  ],
+  "costume-rack": [
+   3.6,
+   2.2,
+   0.6
+  ],
+  "sewing-table": [
+   1.6,
+   0.9,
+   0.8
+  ],
+  "mannequin": [
+   0.6,
+   1.8,
+   0.6
+  ],
+  "makeup-desk": [
+   6,
+   1,
+   0.6
+  ],
+  "w-sofa": [
+   2.2,
+   0.85,
+   0.95
+  ],
+  "explosive-crates": [
+   1.2,
+   1.2,
+   1.2
+  ],
+  "workbench": [
+   2.4,
+   0.95,
+   0.7
+  ],
+  "mini-city": [
+   2.4,
+   0.9,
+   1.2
+  ],
+  "fake-boulder": [
+   4,
+   3.2,
+   4
+  ],
+  "column-drum": [
+   1.4,
+   1.6,
+   1.4
+  ],
+  "water-tower": [
+   3,
+   6,
+   3
+  ],
+  "bus": [
+   2.6,
+   3.3,
+   12
+  ],
+  "truck": [
+   2.6,
+   3.2,
+   8.5
+  ],
+  "console": [
+   1.6,
+   1,
+   0.8
+  ],
+  "captain-chair": [
+   0.9,
+   1.2,
+   0.9
+  ],
+  "dolly": [
+   1.2,
+   1.5,
+   1.8
+  ],
+  "lift": [
+   2.2,
+   2.4,
+   4
+  ],
+  "crane": [
+   1.6,
+   2.4,
+   1.6
+  ],
+  "rack": [
+   5.5,
+   2.4,
+   0.9
+  ],
+  "dino-head": [
+   2.4,
+   2.6,
+   4.4
+  ],
+  "statue": [
+   1,
+   2.8,
+   1
+  ],
+  "shelf-low": [
+   3,
+   1.4,
+   0.6
+  ],
+  "mezz-crate": [
+   1.2,
+   1.2,
+   1.2
+  ],
+  "prow": [
+   3,
+   3.2,
+   9
+  ],
+  "dinghy": [
+   1.6,
+   0.8,
+   4
+  ]
+ },
+ "note": "Written by tools/blender/build_blockout_art.py. The game uses this art only while geometryHash matches the map data."
+}

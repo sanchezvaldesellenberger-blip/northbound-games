@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Under the hood · Northbound Games</title>
+  <meta name="description" content="An interactive demo of the game feel techniques used in every Northbound game.">
+  <meta name="theme-color" content="#090b11">
+  <link rel="icon" href="assets/brand/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>
+    (function () {
+      var q = (location.search.match(/[?&]season=(winter|default)/) || [])[1];
+      if (q ? q === 'winter' : new Date().getMonth() === 11) document.documentElement.classList.add('winter');
+    })();
+  </script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/site.js"></script>
+</head>
+<body class="page-body" data-page="lab">
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></symbol>
+    <symbol id="i-restart" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4.5H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5A3.5 3.5 0 0 0 8.5 11M16 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 13v4M8.5 20h7M10 17h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 5.5V5a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 5v8A1.5 1.5 0 0 0 6 14.5h.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7 8h10a5 5 0 0 1 4.8 6.3l-.9 3.3a2.3 2.3 0 0 1-3.9 1L15 16.5H9l-2 2.1a2.3 2.3 0 0 1-3.9-1l-.9-3.3A5 5 0 0 1 7 8z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11v3M6.5 12.5h3M15.5 12h.01M17.5 13.5h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to the content</a>
+  <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Northbound Games home">
+        <img src="assets/brand/mark-cream.png" width="44" height="44" alt="">
+        <span>Northbound<small>Games</small></span>
+      </a>
+      <nav class="tabs" aria-label="Pages">
+        <a href="games.html">Games</a>
+        <a href="deadzone.html">Deadzone</a>
+        <a href="about.html">About</a>
+        <a href="trophies.html">Trophies</a>
+        <a href="lab.html" aria-current="page">Under the hood</a>
+        <a href="help.html">Help</a>
+      </nav>
+      <div class="status">
+        <a class="pill" href="trophies.html" aria-label="Trophies earned"><svg aria-hidden="true"><use href="#i-trophy"/></svg><span data-ach-count>0/8</span></a>
+        <span class="pad-ind" id="pad-ind" hidden title="Controller connected"><svg aria-hidden="true"><use href="#i-pad"/></svg></span>
+        <time class="clock" id="clock">--:--</time>
+      </div>
+    </header>
+
+  <header class="page-head">
+    <p class="eyebrow">Under the hood</p>
+    <h1>What makes a game<br>feel premium</h1>
+    <p>Most of it is invisible until it's gone. Turn off the techniques used in every Northbound game and watch a lively bounce go flat. Click the screen to throw the ball.</p>
+  </header>
+
+  <main class="library" id="main">
+    <section class="panel hood" aria-label="Game feel demo">
+      <div class="hood-grid">
+        <ul class="settings" id="fx-route">
+          <li><button type="button" class="setting" data-fx="squash" aria-pressed="true"><span><strong>Squash and stretch</strong><small>Objects deform on impact</small></span><i class="toggle" aria-hidden="true"></i></button></li>
+          <li><button type="button" class="setting" data-fx="trail" aria-pressed="true"><span><strong>Motion trail</strong><small>Shows speed at a glance</small></span><i class="toggle" aria-hidden="true"></i></button></li>
+          <li><button type="button" class="setting" data-fx="particles" aria-pressed="true"><span><strong>Impact particles</strong><small>Debris sells the hit</small></span><i class="toggle" aria-hidden="true"></i></button></li>
+          <li><button type="button" class="setting" data-fx="shake" aria-pressed="true"><span><strong>Screen shake</strong><small>A kick on big moments</small></span><i class="toggle" aria-hidden="true"></i></button></li>
+          <li><button type="button" class="setting" data-fx="hitstop" aria-pressed="true"><span><strong>Hit-stop</strong><small>A tiny freeze on impact</small></span><i class="toggle" aria-hidden="true"></i></button></li>
+          <li><button type="button" class="setting" data-fx="sound" aria-pressed="false"><span><strong>Sound</strong><small>Every action is heard</small></span><i class="toggle" aria-hidden="true"></i></button></li>
+        </ul>
+        <div class="lab-screen">
+          <canvas id="lab-canvas" role="img" aria-label="A ball bouncing on a screen. Click to throw it."></canvas>
+          <span class="lab-note" id="lab-readout">5 of 6 on</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="why-title">
+      <header class="panel-head">
+        <div>
+          <p class="eyebrow">Why it matters</p>
+          <h2 id="why-title">Where each one shows up</h2>
+        </div>
+      </header>
+      <div class="cards">
+        <article class="card"><h3>Squash and stretch</h3><p>The fox in Foxfire Run squashes when it lands and stretches into a jump.</p></article>
+        <article class="card"><h3>Particles and rings</h3><p>Every brick in Prism Breaker shatters into shards, and pickups flash a shockwave.</p></article>
+        <article class="card"><h3>Hit-stop and slow motion</h3><p>When a run ends, the world plays out in slow motion so the moment lands.</p></article>
+        <article class="card"><h3>Sound</h3><p>Pickups climb in pitch as your chain grows in Polaris Drift and Halo Orbit.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand" href="index.html" aria-label="Northbound Games home">
+        <img src="assets/brand/mark-cream.png" width="40" height="40" alt="">
+        <span>Northbound<small>Games</small></span>
+      </a>
+      <p>Northbound Games is a game studio of <a href="https://sidequestdigital.net" target="_blank" rel="noopener">SideQuestDigital</a> · <a href="https://sidequestdigital.net" target="_blank" rel="noopener">sidequestdigital.net</a> · <a href="mailto:sanchez@sidequestdigital.net">sanchez@sidequestdigital.net</a></p>
+      <p class="footer-small"><span>© <span id="year">2026</span> Northbound Games</span><span class="tab-hint"><kbd>Q</kbd><kbd>E</kbd> or <kbd>LB</kbd><kbd>RB</kbd> switch tabs</span><span class="konami" title="An old cheat code still works here">↑↑↓↓←→←→BA</span></p>
+    </div>
+    <p class="footer-mark" aria-hidden="true">Northbound</p>
+  </footer>
+
+  <canvas class="snow" id="snow" aria-hidden="true" hidden></canvas>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>

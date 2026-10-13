@@ -1,0 +1,146 @@
+{
+ "geometryHash": "591b76d0",
+ "props": {
+  "trawler": [
+   5,
+   2,
+   14
+  ],
+  "mast": [
+   0.3,
+   6,
+   0.3
+  ],
+  "fountain-statue": [
+   0.9,
+   2.6,
+   0.9
+  ],
+  "fish-crates": [
+   1.2,
+   1,
+   0.8
+  ],
+  "net-pile": [
+   2,
+   0.7,
+   2
+  ],
+  "tar-barrel": [
+   0.75,
+   1,
+   0.75
+  ],
+  "dinghy": [
+   1.6,
+   0.8,
+   4
+  ],
+  "bollard": [
+   0.5,
+   0.7,
+   0.5
+  ],
+  "lobster-pots": [
+   1.6,
+   1.1,
+   1
+  ],
+  "column": [
+   0.8,
+   7.2,
+   0.8
+  ],
+  "fish-table": [
+   2.4,
+   0.9,
+   1
+  ],
+  "ice-chest": [
+   2,
+   1,
+   1
+  ],
+  "crate": [
+   1.2,
+   1.2,
+   1.2
+  ],
+  "lifeboat": [
+   2.6,
+   2.4,
+   8
+  ],
+  "stall": [
+   2,
+   2.4,
+   3
+  ],
+  "sandbags": [
+   3,
+   1,
+   0.8
+  ],
+  "pew": [
+   3.4,
+   0.9,
+   0.7
+  ],
+  "altar": [
+   2.4,
+   1.1,
+   1.2
+  ],
+  "kiosk": [
+   2,
+   2.6,
+   2
+  ],
+  "u-planter": [
+   1.6,
+   0.9,
+   1.6
+  ],
+  "u-tree": [
+   0.5,
+   3,
+   0.5
+  ],
+  "u-sandbags": [
+   3,
+   1,
+   0.8
+  ],
+  "u-patio": [
+   1.4,
+   0.75,
+   1.4
+  ],
+  "hotel-desk": [
+   2.4,
+   1.1,
+   0.7
+  ],
+  "u-bed": [
+   1.6,
+   0.6,
+   2.1
+  ],
+  "u-dresser": [
+   1.2,
+   1,
+   0.5
+  ],
+  "u-wall": [
+   4,
+   1.1,
+   0.4
+  ],
+  "u-crate": [
+   1.2,
+   1.2,
+   1.2
+  ]
+ },
+ "note": "Written by tools/blender/build_blockout_art.py. The game uses this art only while geometryHash matches the map data."
+}

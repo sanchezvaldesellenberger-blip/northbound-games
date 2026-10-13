@@ -1,0 +1,510 @@
+{
+  "version": 1,
+  "textureExtension": "KHR_texture_basisu",
+  "transcoderPath": "basis/",
+  "suggestedDistances": {
+    "character": [
+      15,
+      35
+    ],
+    "weapon": [
+      12,
+      30
+    ]
+  },
+  "assets": [
+    {
+      "asset": "arbiter",
+      "source": "arbiter.glb",
+      "sourceSha256": "7be7bafe1925196121ba9991eac30b3bb34ecdeaef0debbae9b4969316e0c9f4",
+      "sourceBytes": 16921708,
+      "sourceTriangles": 46138,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/arbiter-lod1.glb",
+          "bytes": 2854252,
+          "triangles": 21046,
+          "textureMaxSize": 512,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        },
+        {
+          "level": 2,
+          "file": "lods/arbiter-lod2.glb",
+          "bytes": 787648,
+          "triangles": 8746,
+          "textureMaxSize": 256,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        }
+      ]
+    },
+    {
+      "asset": "blackridge",
+      "source": "blackridge.glb",
+      "sourceSha256": "cf2667f2480800e85b88e033a11403cf287ae0947bdef31cbc82fab1229284d4",
+      "sourceBytes": 15772192,
+      "sourceTriangles": 104106,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/blackridge-lod1.glb",
+          "bytes": 7152728,
+          "triangles": 53345,
+          "textureMaxSize": 512,
+          "textures": 30,
+          "validatorErrors": 0,
+          "validatorWarnings": 69
+        },
+        {
+          "level": 2,
+          "file": "lods/blackridge-lod2.glb",
+          "bytes": 4684880,
+          "triangles": 40531,
+          "textureMaxSize": 256,
+          "textures": 30,
+          "validatorErrors": 0,
+          "validatorWarnings": 69
+        }
+      ]
+    },
+    {
+      "asset": "blackridge-arms",
+      "source": "blackridge-arms.glb",
+      "sourceSha256": "ef1a4cb0780cc61b6c1eafe926538e15d3909c106cd23ad2a7c5a369fb26cc8d",
+      "sourceBytes": 1415000,
+      "sourceTriangles": 8472,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/blackridge-arms-lod1.glb",
+          "bytes": 454460,
+          "triangles": 3812,
+          "textureMaxSize": 512,
+          "textures": 3,
+          "validatorErrors": 0,
+          "validatorWarnings": 8
+        },
+        {
+          "level": 2,
+          "file": "lods/blackridge-arms-lod2.glb",
+          "bytes": 164664,
+          "triangles": 1524,
+          "textureMaxSize": 256,
+          "textures": 3,
+          "validatorErrors": 0,
+          "validatorWarnings": 8
+        }
+      ]
+    },
+    {
+      "asset": "havoc",
+      "source": "havoc.glb",
+      "sourceSha256": "51cc8ba93f94f8b6614c47e453d31d862da22f01399a8ff7eaf3e47a4883b9cf",
+      "sourceBytes": 15856508,
+      "sourceTriangles": 29908,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/havoc-lod1.glb",
+          "bytes": 2411928,
+          "triangles": 13456,
+          "textureMaxSize": 512,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        },
+        {
+          "level": 2,
+          "file": "lods/havoc-lod2.glb",
+          "bytes": 593004,
+          "triangles": 5642,
+          "textureMaxSize": 256,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        }
+      ]
+    },
+    {
+      "asset": "hornet",
+      "source": "hornet.glb",
+      "sourceSha256": "cb611bb8fe8f8a013760ecef6380e89ea1ebcf567fda653fb00875e1c2fb9521",
+      "sourceBytes": 14119352,
+      "sourceTriangles": 25268,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/hornet-lod1.glb",
+          "bytes": 2119372,
+          "triangles": 11420,
+          "textureMaxSize": 512,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        },
+        {
+          "level": 2,
+          "file": "lods/hornet-lod2.glb",
+          "bytes": 526224,
+          "triangles": 4796,
+          "textureMaxSize": 256,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        }
+      ]
+    },
+    {
+      "asset": "infantry",
+      "source": "infantry.glb",
+      "sourceSha256": "afc25b4d64e94601ad944ac45d37c526b583278d477baff016f727c4e8b67216",
+      "sourceBytes": 17145124,
+      "sourceTriangles": 103012,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/infantry-lod1.glb",
+          "bytes": 7425836,
+          "triangles": 52737,
+          "textureMaxSize": 512,
+          "textures": 30,
+          "validatorErrors": 0,
+          "validatorWarnings": 69
+        },
+        {
+          "level": 2,
+          "file": "lods/infantry-lod2.glb",
+          "bytes": 4420576,
+          "triangles": 37435,
+          "textureMaxSize": 256,
+          "textures": 30,
+          "validatorErrors": 0,
+          "validatorWarnings": 69
+        }
+      ]
+    },
+    {
+      "asset": "infantry-arms",
+      "source": "infantry-arms.glb",
+      "sourceSha256": "664362ffda18511e35f2d01f7fae58bee894fc3d868b55ea4a63b3096b79a839",
+      "sourceBytes": 1564728,
+      "sourceTriangles": 8472,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/infantry-arms-lod1.glb",
+          "bytes": 453820,
+          "triangles": 3812,
+          "textureMaxSize": 512,
+          "textures": 3,
+          "validatorErrors": 0,
+          "validatorWarnings": 8
+        },
+        {
+          "level": 2,
+          "file": "lods/infantry-arms-lod2.glb",
+          "bytes": 165288,
+          "triangles": 1524,
+          "textureMaxSize": 256,
+          "textures": 3,
+          "validatorErrors": 0,
+          "validatorWarnings": 8
+        }
+      ]
+    },
+    {
+      "asset": "knife",
+      "source": "knife.glb",
+      "sourceSha256": "3b85eb244bb2d4fb30db0060a8fbf29b6264d8fd77f971c381c2b7a44af06148",
+      "sourceBytes": 5634192,
+      "sourceTriangles": 3104,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/knife-lod1.glb",
+          "bytes": 686076,
+          "triangles": 1392,
+          "textureMaxSize": 512,
+          "textures": 9,
+          "validatorErrors": 0,
+          "validatorWarnings": 18
+        },
+        {
+          "level": 2,
+          "file": "lods/knife-lod2.glb",
+          "bytes": 134260,
+          "triangles": 582,
+          "textureMaxSize": 256,
+          "textures": 9,
+          "validatorErrors": 0,
+          "validatorWarnings": 18
+        }
+      ]
+    },
+    {
+      "asset": "lmg",
+      "source": "lmg.glb",
+      "sourceSha256": "802800dce101adb85cd2a658b0ecad6674c8f6d30e2689b60aca68b28ea28ecb",
+      "sourceBytes": 15012632,
+      "sourceTriangles": 37956,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/lmg-lod1.glb",
+          "bytes": 2472536,
+          "triangles": 17120,
+          "textureMaxSize": 512,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        },
+        {
+          "level": 2,
+          "file": "lods/lmg-lod2.glb",
+          "bytes": 692100,
+          "triangles": 7082,
+          "textureMaxSize": 256,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        }
+      ]
+    },
+    {
+      "asset": "magistrate",
+      "source": "magistrate.glb",
+      "sourceSha256": "02bb9b13969e4b955d29890ae28f5fb5402ccae6d6635adfc05d579155e89445",
+      "sourceBytes": 14879116,
+      "sourceTriangles": 21896,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/magistrate-lod1.glb",
+          "bytes": 2154340,
+          "triangles": 12352,
+          "textureMaxSize": 512,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        },
+        {
+          "level": 2,
+          "file": "lods/magistrate-lod2.glb",
+          "bytes": 519300,
+          "triangles": 5930,
+          "textureMaxSize": 256,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        }
+      ]
+    },
+    {
+      "asset": "pistol",
+      "source": "pistol.glb",
+      "sourceSha256": "d09d9d724110388d97c37be70062535aa6781e65e54285f5b17bc28a73f872b4",
+      "sourceBytes": 13234824,
+      "sourceTriangles": 15950,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/pistol-lod1.glb",
+          "bytes": 1817396,
+          "triangles": 7334,
+          "textureMaxSize": 512,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        },
+        {
+          "level": 2,
+          "file": "lods/pistol-lod2.glb",
+          "bytes": 405420,
+          "triangles": 3188,
+          "textureMaxSize": 256,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        }
+      ]
+    },
+    {
+      "asset": "ravager",
+      "source": "ravager.glb",
+      "sourceSha256": "bd6d178f2703ae47f96672b4810434a63600004bfaef7ecf5eeefcd0d6b3b75a",
+      "sourceBytes": 13507616,
+      "sourceTriangles": 27576,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/ravager-lod1.glb",
+          "bytes": 2145840,
+          "triangles": 12586,
+          "textureMaxSize": 512,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        },
+        {
+          "level": 2,
+          "file": "lods/ravager-lod2.glb",
+          "bytes": 533048,
+          "triangles": 5304,
+          "textureMaxSize": 256,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        }
+      ]
+    },
+    {
+      "asset": "rifle",
+      "source": "rifle.glb",
+      "sourceSha256": "0c1fdd44bf7602b0831f32d80f6e0762c2f41472dcbb621cdfeaa9fa540ef3c3",
+      "sourceBytes": 3696408,
+      "sourceTriangles": 18000,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/rifle-lod1.glb",
+          "bytes": 649140,
+          "triangles": 8231,
+          "textureMaxSize": 512,
+          "textures": 3,
+          "validatorErrors": 0,
+          "validatorWarnings": 8
+        },
+        {
+          "level": 2,
+          "file": "lods/rifle-lod2.glb",
+          "bytes": 265848,
+          "triangles": 3287,
+          "textureMaxSize": 256,
+          "textures": 3,
+          "validatorErrors": 0,
+          "validatorWarnings": 8
+        }
+      ]
+    },
+    {
+      "asset": "shotgun",
+      "source": "shotgun.glb",
+      "sourceSha256": "e7f05a028d41f7c5f1ee20a6a0ee4ad538d12c9967e2aefcebb82d82b84350be",
+      "sourceBytes": 15224960,
+      "sourceTriangles": 44660,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/shotgun-lod1.glb",
+          "bytes": 2575868,
+          "triangles": 20174,
+          "textureMaxSize": 512,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        },
+        {
+          "level": 2,
+          "file": "lods/shotgun-lod2.glb",
+          "bytes": 750708,
+          "triangles": 8564,
+          "textureMaxSize": 256,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        }
+      ]
+    },
+    {
+      "asset": "smg",
+      "source": "smg.glb",
+      "sourceSha256": "7c55b18cb1d5ee742bb17385c523ef216868f5e041c1d64efe47590198379594",
+      "sourceBytes": 14389040,
+      "sourceTriangles": 26848,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/smg-lod1.glb",
+          "bytes": 2162156,
+          "triangles": 12092,
+          "textureMaxSize": 512,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        },
+        {
+          "level": 2,
+          "file": "lods/smg-lod2.glb",
+          "bytes": 534432,
+          "triangles": 4978,
+          "textureMaxSize": 256,
+          "textures": 21,
+          "validatorErrors": 0,
+          "validatorWarnings": 42
+        }
+      ]
+    },
+    {
+      "asset": "sniper",
+      "source": "sniper.glb",
+      "sourceSha256": "470ee2a8a0d6fa8f825367d19b2e8484a9aeda962b90115b79d44aede5f3a7e9",
+      "sourceBytes": 17952540,
+      "sourceTriangles": 66112,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/sniper-lod1.glb",
+          "bytes": 3360360,
+          "triangles": 32176,
+          "textureMaxSize": 512,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        },
+        {
+          "level": 2,
+          "file": "lods/sniper-lod2.glb",
+          "bytes": 1064552,
+          "triangles": 13848,
+          "textureMaxSize": 256,
+          "textures": 24,
+          "validatorErrors": 0,
+          "validatorWarnings": 48
+        }
+      ]
+    },
+    {
+      "asset": "vanguard-vx4",
+      "source": "vanguard-vx4.glb",
+      "sourceSha256": "ea6d1582a8123e0ecd1ec69bda5d22e1f5ba6e9ecec90a28a059f4d5a4fadfec",
+      "sourceBytes": 6069672,
+      "sourceTriangles": 45154,
+      "variants": [
+        {
+          "level": 1,
+          "file": "lods/vanguard-vx4-lod1.glb",
+          "bytes": 6444356,
+          "triangles": 45150,
+          "textureMaxSize": 512,
+          "textures": 16,
+          "validatorErrors": 0,
+          "validatorWarnings": 32
+        },
+        {
+          "level": 2,
+          "file": "lods/vanguard-vx4-lod2.glb",
+          "bytes": 6048560,
+          "triangles": 45138,
+          "textureMaxSize": 256,
+          "textures": 16,
+          "validatorErrors": 0,
+          "validatorWarnings": 32
+        }
+      ]
+    }
+  ]
+}

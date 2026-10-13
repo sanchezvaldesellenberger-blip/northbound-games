@@ -1,0 +1,20 @@
+[
+  {
+    "name": "breacher.glb",
+    "before": 510984,
+    "after": 227940,
+    "meshes": 24
+  },
+  {
+    "name": "recon.glb",
+    "before": 466208,
+    "after": 202332,
+    "meshes": 23
+  },
+  {
+    "name": "sentry.glb",
+    "before": 488004,
+    "after": 213000,
+    "meshes": 24
+  }
+]

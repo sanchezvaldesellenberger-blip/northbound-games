@@ -1,0 +1,51 @@
+[
+  {
+    "name": "knife.glb",
+    "before": 27552,
+    "after": 27552,
+    "meshes": 1,
+    "materials": 4
+  },
+  {
+    "name": "lmg.glb",
+    "before": 117560,
+    "after": 109920,
+    "meshes": 6,
+    "materials": 4
+  },
+  {
+    "name": "pistol.glb",
+    "before": 52872,
+    "after": 52872,
+    "meshes": 1,
+    "materials": 3
+  },
+  {
+    "name": "rifle.glb",
+    "before": 103004,
+    "after": 103004,
+    "meshes": 1,
+    "materials": 3
+  },
+  {
+    "name": "shotgun.glb",
+    "before": 54196,
+    "after": 54196,
+    "meshes": 1,
+    "materials": 4
+  },
+  {
+    "name": "smg.glb",
+    "before": 69812,
+    "after": 69812,
+    "meshes": 1,
+    "materials": 4
+  },
+  {
+    "name": "sniper.glb",
+    "before": 75248,
+    "after": 75248,
+    "meshes": 1,
+    "materials": 5
+  }
+]

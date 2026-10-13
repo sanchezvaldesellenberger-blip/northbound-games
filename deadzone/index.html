@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0e1316" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230e1316'/%3E%3Cpath d='M14 14h14c10 0 16 7 16 18s-6 18-16 18H14z' fill='none' stroke='%23f2b53c' stroke-width='6'/%3E%3Cpath d='M40 50L52 14' stroke='%23eef2f4' stroke-width='5'/%3E%3C/svg%3E" />
+    <link rel="preload" href="./fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <title>DEADZONE</title>
+    <style>
+      html, body { margin: 0; background: #0e1316; }
+    </style>
+    <script type="module" crossorigin src="./assets/game-Ba5kMrrV.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/three-CzEw-oMl.js">
+    <link rel="modulepreload" crossorigin href="./assets/soldiers-xppI0Z7i.js">
+    <link rel="modulepreload" crossorigin href="./assets/physics-CKC5f6tm.js">
+    <link rel="modulepreload" crossorigin href="./assets/physics-3UdMcyr7.js">
+    <link rel="modulepreload" crossorigin href="./assets/ragdoll-DVDbA92F.js">
+    <link rel="modulepreload" crossorigin href="./assets/style-B1vm_GmS.js">
+    <link rel="stylesheet" crossorigin href="./assets/style-AYpdhdl0.css">
+    <link rel="stylesheet" crossorigin href="./assets/game-DkXN8fRO.css">
+  </head>
+  <body>
+    <!-- The loading screen, shared by the game and the practice range (inserted by the loading-screen plugin in
+     vite.config.ts). It paints before the page's scripts arrive, so its styles live here and not in a stylesheet. -->
+<style>
+  @font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: swap; src: url("./fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Barlow Condensed"; font-weight: 600; font-display: swap; src: url("./fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url("./fonts/barlow-latin-500-normal.woff2") format("woff2"); }
+  #loading-screen { position: fixed; inset: 0; z-index: 1000; overflow: hidden; background: #0e1316; color: #eef2f4;
+    font-family: "Barlow", system-ui, sans-serif; transition: opacity .45s ease, visibility 0s; }
+  #loading-screen.done { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .45s ease, visibility 0s linear .45s; }
+  #loading-screen.enter { opacity: 0; }
+  #loading-screen.done *, #loading-screen.done *::after { animation: none !important; }
+  #loading-screen .ls-art { position: absolute; inset: -3%; background: #141b1f center / cover no-repeat;
+    opacity: 0; transition: opacity .8s ease; animation: ls-drift 24s ease-out both; }
+  #loading-screen .ls-art.ready { opacity: 1; }
+  #loading-screen .ls-shade { position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(14,19,22,.94) 0%, rgba(14,19,22,.72) 38%, rgba(14,19,22,.15) 72%, rgba(14,19,22,.35) 100%),
+                linear-gradient(0deg, rgba(14,19,22,.92) 0%, rgba(14,19,22,0) 42%); }
+  #loading-screen .ls-logo { position: absolute; top: 34px; left: clamp(20px, 5vw, 64px); font: 800 30px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; }
+  #loading-screen .ls-logo i { color: #f2b53c; font-style: normal; margin: 0 2px; display: inline-block; transform: skewX(-8deg); }
+  #loading-screen .ls-body { position: absolute; left: clamp(20px, 5vw, 64px); right: clamp(20px, 5vw, 64px); bottom: clamp(36px, 9vh, 88px); max-width: 640px; }
+  #loading-screen .ls-kicker { display: block; font: 600 14px/1 "Barlow Condensed", sans-serif; letter-spacing: .22em; text-transform: uppercase; color: #f2b53c; }
+  #loading-screen .ls-map { margin: 10px 0 6px; font: 800 clamp(48px, 9vw, 104px)/.9 "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .01em; }
+  #loading-screen .ls-mode { margin: 0 0 26px; font-size: 17px; color: #b9c4ca; min-height: 1.3em; }
+  #loading-screen .ls-bar { position: relative; height: 4px; background: rgba(238,242,244,.14); overflow: hidden; }
+  #loading-screen .ls-bar i { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, #f2b53c, #ffd27a); transition: width .35s ease; }
+  #loading-screen .ls-bar::after { content: ""; position: absolute; inset: 0; width: 30%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent); animation: ls-sheen 1.6s linear infinite; }
+  #loading-screen .ls-row { display: flex; justify-content: space-between; gap: 16px; margin-top: 12px;
+    font: 600 14px/1.2 "Barlow Condensed", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #8d9aa1; }
+  #loading-screen .ls-tip { position: absolute; right: clamp(20px, 5vw, 64px); bottom: clamp(36px, 9vh, 88px); max-width: 340px; margin: 0;
+    padding: 14px 16px; border-left: 3px solid #f2b53c; background: rgba(14,19,22,.72); color: #c9d3d8; font-size: 15px; line-height: 1.45; }
+  #loading-screen .ls-tip b { display: block; margin-bottom: 4px; font: 600 12px/1 "Barlow Condensed", sans-serif; letter-spacing: .2em; color: #f2b53c; }
+  /* Loaded and waiting for the click that captures the mouse. */
+  #loading-screen.ready { cursor: pointer; }
+  #loading-screen.ready .ls-bar::after { animation: none; opacity: 0; }
+  #loading-screen.ready .ls-step { color: #f2b53c; animation: ls-pulse 1.4s ease-in-out infinite; }
+  @keyframes ls-pulse { 50% { opacity: .45; } }
+  @media (max-width: 900px) { #loading-screen .ls-tip { display: none; } }
+  @keyframes ls-drift { from { transform: scale(1.06) translateX(1%); } to { transform: scale(1) translateX(0); } }
+  @keyframes ls-sheen { from { transform: translateX(-100%); } to { transform: translateX(400%); } }
+  @media (prefers-reduced-motion: reduce) { #loading-screen .ls-art, #loading-screen .ls-bar::after, #loading-screen.ready .ls-step { animation: none; } }
+  /* A plain start opens on the home screen, not a map: just the logo and the bar, no map name or picture. */
+  #loading-screen.boot .ls-art, #loading-screen.boot .ls-shade, #loading-screen.boot .ls-kicker, #loading-screen.boot .ls-map,
+  #loading-screen.boot .ls-mode, #loading-screen.boot .ls-tip { display: none; }
+  #loading-screen.boot .ls-logo { top: 50%; left: 50%; transform: translate(-50%, -100%); font-size: clamp(44px, 7vw, 72px); }
+  #loading-screen.boot .ls-body { top: 50%; bottom: auto; left: 50%; right: auto; width: min(420px, calc(100% - 40px)); transform: translate(-50%, 28px); }
+</style>
+<div id="loading-screen" role="status" aria-live="polite">
+  <div class="ls-art"></div><div class="ls-shade"></div>
+  <div class="ls-logo">DEAD<i>/</i>ZONE</div>
+  <div class="ls-body">
+    <small class="ls-kicker">Loading</small>
+    <h1 class="ls-map">Deadzone</h1>
+    <p class="ls-mode"></p>
+    <div class="ls-bar"><i></i></div>
+    <div class="ls-row"><span class="ls-step">Starting</span><span class="ls-pct">0%</span></div>
+  </div>
+  <p class="ls-tip"><b>TIP</b><span></span></p>
+</div>
+
+    <script src="./touch-notice.js"></script>
+    <script>
+      // Fill in the map before any game code runs: ?map=, then the last map picked, then Halcyon.
+      // Only a screen that sent us here (map switch, matchmaking) shows the map: it leaves its title in sessionStorage.
+      (function () {
+        var MAPS = { halcyon: ["Halcyon", "Map 01"], marlow_estate: ["Marlow Estate", "Map 02"], tidewall: ["Tidewall", "Map 03"] };
+        var TIPS = [
+          "Bots fill every open slot, so a match can start the moment you deploy.",
+          "Sprint, then crouch to slide into cover.",
+          "In Search and destroy, letting go of plant or defuse resets the timer.",
+          "Every key can be rebound in Settings, Controls.",
+          "Each elimination tops up a magazine of reserve ammunition.",
+          "Hold the scoreboard key to see who's carrying the match.",
+        ];
+        var id = null, info = null;
+        try { id = new URLSearchParams(location.search).get("map"); } catch (e) {}
+        if (!MAPS[id]) { try { id = localStorage.getItem("deadzone.map"); } catch (e) {} }
+        if (!MAPS[id]) id = "halcyon";
+        try { info = JSON.parse(sessionStorage.getItem("deadzone.loading") || "null"); } catch (e) {}
+        var root = document.getElementById("loading-screen");
+        // A plain start opens on the home screen, whatever map was last played: no map name or picture.
+        if (!info || info.map !== id) { root.classList.add("boot"); return; }
+        root.querySelector(".ls-map").textContent = MAPS[id][0];
+        root.querySelector(".ls-kicker").textContent = info.kicker || "Deadzone · " + MAPS[id][1];
+        root.querySelector(".ls-mode").textContent = info.detail || "";
+        root.querySelector(".ls-tip span").textContent = TIPS[Math.floor(Math.random() * TIPS.length)];
+        var art = root.querySelector(".ls-art"), img = new Image();
+        img.onload = function () { art.style.backgroundImage = "url(" + img.src + ")"; art.classList.add("ready"); };
+        img.src = "./loading/" + id + ".jpg";
+        document.title = "DEADZONE — " + MAPS[id][0];
+      })();
+    </script>
+    <div id="app"></div>
+  </body>
+</html>
