@@ -6,10 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Trophies · Northbound Games</title>
+    <title>Leaderboards &amp; trophies · Northbound Games</title>
     <meta
       name="description"
-      content="Your Northbound Games trophies and high scores."
+      content="Online leaderboards for all six Northbound arcade games, plus your personal trophies and best runs."
     />
     <meta name="theme-color" content="#090b11" />
     <link rel="icon" href="assets/brand/favicon-64.png" type="image/png" />
@@ -20,7 +20,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
     />
-    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/site.css?v=20261013-leaderboards" />
     <script>
       (function () {
         var q = (location.search.match(/[?&]season=(winter|default)/) || [])[1];
@@ -30,6 +30,8 @@
     </script>
     <script defer src="assets/js/core.js"></script>
     <script defer src="assets/js/site.js"></script>
+    <script defer src="assets/js/leaderboard-config.js"></script>
+    <script defer src="assets/js/leaderboards.js"></script>
   </head>
   <body class="page-body" data-page="trophies">
     <svg
@@ -192,6 +194,7 @@
         </a>
         <nav class="nav-links" aria-label="Main">
           <a href="games.html">Games</a>
+          <a href="trophies.html#leaderboards">Leaderboards</a>
           <a href="deadzone.html">Deadzone</a>
           <a href="about.html">Studio</a>
           <a href="index.html#news">News</a>
@@ -211,14 +214,69 @@
 
     <header class="page-head">
       <p class="eyebrow">Trophies</p>
-      <h1>Your trophies</h1>
+      <h1>Leaderboards &amp; trophies</h1>
       <p>
-        Earn trophies by playing the arcade games and poking around the site.
-        Everything is saved in this browser only.
+        Earn trophies, track your best runs and compete on the arcade
+        leaderboards. Your trophies and personal bests stay in this browser.
       </p>
     </header>
 
     <main class="library" id="main">
+      <section
+        class="panel"
+        id="leaderboards"
+        aria-labelledby="leaderboards-title"
+      >
+        <header class="panel-head">
+          <div>
+            <p class="eyebrow">Worldwide · Arcade</p>
+            <h2 id="leaderboards-title">Leaderboards</h2>
+          </div>
+          <div class="leaderboard-controls">
+            <label for="leaderboard-game">Game</label
+            ><select id="leaderboard-game">
+              <option value="polaris-drift">Polaris Drift</option>
+              <option value="aurora-stack">Aurora Stack</option>
+              <option value="glacier-breaker">Prism Breaker</option>
+              <option value="constellation">Constellation</option>
+              <option value="tundra-dash">Foxfire Run</option>
+              <option value="halo-orbit">Halo Orbit</option></select
+            ><button class="text-btn" id="leaderboard-refresh" type="button">
+              Refresh
+            </button>
+          </div>
+        </header>
+        <p
+          class="online-status"
+          id="leaderboard-status"
+          role="status"
+          aria-live="polite"
+        >
+          Loading leaderboard…
+        </p>
+        <div class="leaderboard-table">
+          <table class="scores">
+            <caption class="sr-only">
+              Top 25 arcade scores, highest first
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Player</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-rows"></tbody>
+          </table>
+        </div>
+        <footer class="panel-foot">
+          <p>
+            All-time bests. One entry per player in each game. Finish a new run
+            and choose “Post score” to join.
+          </p>
+          <a class="text-btn" href="games.html">Play the arcade</a>
+        </footer>
+      </section>
       <section class="panel trophies" aria-labelledby="trophies-title">
         <header class="panel-head">
           <div>

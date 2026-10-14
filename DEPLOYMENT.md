@@ -29,3 +29,7 @@ The intended web records are:
 The original Squarespace Defaults preset had four A records (`198.185.159.144`, `198.185.159.145`, `198.49.23.144`, `198.49.23.145`), `www` pointing to `ext-sq.squarespace.com`, and an HTTPS record with those Squarespace IPv4 hints. Replacing that web preset must leave the separate Domain Connect and Email Security presets intact.
 
 Enable GitHub Pages HTTPS enforcement once GitHub has issued the certificate for the custom domain. DNS and certificate issuance are separate from the successful Pages deployment.
+
+## Online arcade leaderboards
+
+The site's HTTPS certificate is active and HTTPS enforcement is enabled. The six arcade leaderboards use the separate **Northbound Games Website** Supabase project in the **Northbound** organization. See `backend/leaderboards/README.md` for schema, API deployment, moderation, and score-validation limits. The browser uses only a publishable API key; server credentials remain in Supabase's runtime environment.

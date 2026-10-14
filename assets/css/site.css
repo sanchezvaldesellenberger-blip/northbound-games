@@ -1312,6 +1312,78 @@ kbd {
 .scores a:hover span {
   color: var(--gold);
 }
+.leaderboard-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.leaderboard-controls label,
+.online-submit label {
+  font-size: 0.82rem;
+  color: var(--text-2);
+}
+.leaderboard-controls select,
+.online-submit input {
+  max-width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line-2);
+  border-radius: 0;
+  padding: 10px 12px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+.leaderboard-controls select:focus-visible,
+.online-submit input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.leaderboard-table {
+  overflow-x: auto;
+}
+.leaderboard-table .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.online-status {
+  color: var(--text-2);
+  font-size: 0.85rem;
+  margin: 12px 0;
+}
+.online-submit {
+  width: min(100%, 420px);
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  text-align: left;
+}
+.online-submit[hidden] {
+  display: none;
+}
+.online-submit-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.online-submit input {
+  flex: 1;
+  width: 120px;
+}
+.online-submit button {
+  flex-shrink: 0;
+}
+.online-submit button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.online-board-link {
+  font-size: 0.85rem;
+}
 .score-game {
   display: inline-flex;
   align-items: center;

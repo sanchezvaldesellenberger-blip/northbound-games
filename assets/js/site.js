@@ -249,7 +249,7 @@
     resetBtn.addEventListener("click", () => {
       if (!resetBtn.hasAttribute("data-armed")) {
         resetBtn.setAttribute("data-armed", "");
-        resetBtn.textContent = "Click again to erase everything";
+        resetBtn.textContent = "Click again to reset local progress";
         clearTimeout(armTimer);
         armTimer = setTimeout(() => {
           resetBtn.removeAttribute("data-armed");
