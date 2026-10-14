@@ -33,6 +33,7 @@
     let response;
     try {
       response = await fetch(url, {
+        cache: "no-store",
         method: body ? "POST" : "GET",
         headers: {
           apikey: config.publishableKey,
