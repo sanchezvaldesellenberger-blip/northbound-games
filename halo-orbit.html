@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Halo Orbit | One-tap reflex Browser Game | Northbound Games</title>
+    <meta
+      name="description"
+      content="Fly a small probe around a ringed planet and collect the stardust on your orbit. Tap to reverse direction. A red marker shows where the next comet will come in."
+    />
+    <meta name="theme-color" content="#090b11" />
+    <link rel="icon" href="assets/brand/favicon-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/site.css?v=20261013-leaderboards" />
+    <script>
+      (function () {
+        var q = (location.search.match(/[?&]season=(winter|default)/) || [])[1];
+        if (q ? q === "winter" : new Date().getMonth() === 11)
+          document.documentElement.classList.add("winter");
+      })();
+    </script>
+    <script defer src="assets/js/core.js"></script>
+    <script defer src="assets/js/site.js"></script>
+    <link
+      rel="canonical"
+      href="https://northboundgames.studio/halo-orbit.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Northbound Games" />
+    <meta
+      property="og:title"
+      content="Halo Orbit | One-tap reflex Browser Game | Northbound Games"
+    />
+    <meta
+      property="og:description"
+      content="Fly a small probe around a ringed planet and collect the stardust on your orbit. Tap to reverse direction. A red marker shows where the next comet will come in."
+    />
+    <meta
+      property="og:url"
+      content="https://northboundgames.studio/halo-orbit.html"
+    />
+    <meta
+      property="og:image"
+      content="https://northboundgames.studio/assets/projects/arcade/halo-orbit.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Halo Orbit | One-tap reflex Browser Game | Northbound Games"
+    />
+    <meta
+      name="twitter:description"
+      content="Fly a small probe around a ringed planet and collect the stardust on your orbit. Tap to reverse direction. A red marker shows where the next comet will come in."
+    />
+    <meta
+      name="twitter:image"
+      content="https://northboundgames.studio/assets/projects/arcade/halo-orbit.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://northboundgames.studio/#studio",
+            "name": "Northbound Games",
+            "url": "https://northboundgames.studio",
+            "logo": "https://northboundgames.studio/assets/brand/badge-cream.png",
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "SideQuest",
+              "url": "https://sidequestdigital.net"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://northboundgames.studio/#website",
+            "name": "Northbound Games",
+            "url": "https://northboundgames.studio",
+            "publisher": { "@id": "https://northboundgames.studio/#studio" }
+          },
+          {
+            "@type": "VideoGame",
+            "@id": "https://northboundgames.studio/halo-orbit.html#game",
+            "name": "Halo Orbit",
+            "description": "Fly a small probe around a ringed planet and collect the stardust on your orbit. Tap to reverse direction. A red marker shows where the next comet will come in.",
+            "url": "https://northboundgames.studio/halo-orbit.html",
+            "image": "https://northboundgames.studio/assets/projects/arcade/halo-orbit.png",
+            "genre": "One-tap reflex",
+            "gamePlatform": "Web browser",
+            "author": { "@id": "https://northboundgames.studio/#studio" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Northbound Games",
+                "item": "https://northboundgames.studio/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Games",
+                "item": "https://northboundgames.studio/games.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Halo Orbit",
+                "item": "https://northboundgames.studio/halo-orbit.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="page-body" data-page="arcade-guide">
+    <svg
+      class="sprite"
+      width="0"
+      height="0"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="i-play" viewBox="0 0 24 24">
+        <path d="M7 4.5v15l12-7.5z" fill="currentColor" />
+      </symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24">
+        <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor" />
+      </symbol>
+      <symbol id="i-restart" viewBox="0 0 24 24">
+        <path
+          d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4.5H9"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" />
+        <path
+          d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-sound-off" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" />
+        <path
+          d="M16 9.5l5 5M21 9.5l-5 5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24">
+        <path
+          d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path
+          d="M6 6l12 12M18 6L6 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24">
+        <path
+          d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5A3.5 3.5 0 0 0 8.5 11M16 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 13v4M8.5 20h7M10 17h4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path
+          d="M7 17L17 7M9 7h8v8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect
+          x="8.5"
+          y="8.5"
+          width="11"
+          height="11"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <path
+          d="M15.5 5.5V5a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 5v8A1.5 1.5 0 0 0 6 14.5h.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+      </symbol>
+      <symbol id="i-pad" viewBox="0 0 24 24">
+        <path
+          d="M7 8h10a5 5 0 0 1 4.8 6.3l-.9 3.3a2.3 2.3 0 0 1-3.9 1L15 16.5H9l-2 2.1a2.3 2.3 0 0 1-3.9-1l-.9-3.3A5 5 0 0 1 7 8z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8 11v3M6.5 12.5h3M15.5 12h.01M17.5 13.5h.01"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24">
+        <path
+          d="M9 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path
+          d="M4 7h16M4 12h16M4 17h16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="i-arrow-r" viewBox="0 0 24 24">
+        <path
+          d="M4 12h15M13 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="square"
+        />
+      </symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to the content</a>
+    <header class="nav" id="nav">
+      <div class="nav-in">
+        <a class="brand" href="index.html" aria-label="Northbound Games home">
+          <img
+            src="assets/brand/mark-cream.png"
+            width="38"
+            height="38"
+            alt=""
+          />
+          <span>Northbound<small>Games</small></span>
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="games.html">Games</a>
+          <a href="trophies.html#leaderboards">Leaderboards</a>
+          <a href="deadzone.html">Deadzone</a>
+          <a href="about.html">Studio</a>
+          <a href="index.html#news">News</a>
+          <a href="help.html">Help</a>
+        </nav>
+        <a class="btn btn-gold btn-sm nav-cta" href="games.html">Play now</a>
+        <button
+          class="nav-menu"
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <svg aria-hidden="true"><use href="#i-menu" /></svg>
+        </button>
+      </div>
+    </header>
+    <main class="library" id="main">
+      <section class="panel arcade-guide" aria-labelledby="game-title">
+        <p class="eyebrow">Northbound arcade · One-tap reflex</p>
+        <h1 id="game-title">Halo Orbit</h1>
+        <p class="lede">
+          Fly a small probe around a ringed planet and collect the stardust on
+          your orbit. Tap to reverse direction. A red marker shows where the
+          next comet will come in.
+        </p>
+        <div class="actions">
+          <a class="btn btn-gold" href="games.html#halo-orbit"
+            >Play Halo Orbit</a
+          ><a class="btn btn-line" href="games.html">Browse all games</a>
+        </div>
+        <img
+          class="guide-screenshot"
+          src="assets/projects/arcade/halo-orbit.png"
+          width="800"
+          height="500"
+          alt="Halo Orbit game preview"
+          fetchpriority="high"
+        />
+        <h2>How to play</h2>
+        <p>
+          Collect stardust while circling the planet. Watch the red marker for
+          incoming comets and reverse direction to stay out of their way.
+        </p>
+        <h2>Controls</h2>
+        <dl class="guide-controls">
+          <div>
+            <dt>Space, click or tap</dt>
+            <dd>Reverse orbit</dd>
+          </div>
+        </dl>
+        <p>
+          Play in your browser with keyboard, mouse, or touch controls. No
+          account or installation is needed. Your personal best stays in this
+          browser on this device.
+        </p>
+        <p>
+          <a href="help.html">Game help</a> ·
+          <a href="trophies.html#leaderboards">Leaderboards and trophies</a>
+        </p>
+      </section>
+      <section class="panel" aria-labelledby="more-games">
+        <h2 id="more-games">More from the arcade</h2>
+        <ul class="guide-list">
+          <li><a href="polaris-drift.html">Polaris Drift</a></li>
+          <li><a href="aurora-stack.html">Aurora Stack</a></li>
+          <li><a href="prism-breaker.html">Prism Breaker</a></li>
+          <li><a href="constellation.html">Constellation</a></li>
+          <li><a href="foxfire-run.html">Foxfire Run</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="foot-in">
+        <div class="foot-brand">
+          <a class="brand" href="index.html" aria-label="Northbound Games home">
+            <img
+              src="assets/brand/mark-cream.png"
+              width="38"
+              height="38"
+              alt=""
+            />
+            <span>Northbound<small>Games</small></span>
+          </a>
+          <p>
+            Northbound Games is a game studio of
+            <a
+              href="https://sidequestdigital.net"
+              target="_blank"
+              rel="noopener"
+              >SideQuestDigital</a
+            >, making original games for the web browser.
+          </p>
+        </div>
+        <nav class="foot-col" aria-label="Games">
+          <h2>Games</h2>
+          <a href="deadzone.html">Deadzone</a>
+          <a href="games.html">Arcade</a>
+          <a href="games.html">Play in your browser</a>
+        </nav>
+        <nav class="foot-col" aria-label="Studio">
+          <h2>Studio</h2>
+          <a href="about.html">About</a>
+          <a href="index.html#news">News</a>
+          <a href="help.html">Help</a>
+        </nav>
+        <nav class="foot-col" aria-label="Extras">
+          <h2>Extras</h2>
+          <a href="trophies.html">Trophies</a>
+          <a href="lab.html">Under the hood</a>
+        </nav>
+        <div class="foot-col">
+          <h2>Contact</h2>
+          <a href="mailto:sanchez@sidequestdigital.net"
+            >sanchez@sidequestdigital.net</a
+          >
+          <a href="https://sidequestdigital.net" target="_blank" rel="noopener"
+            >sidequestdigital.net</a
+          >
+        </div>
+      </div>
+      <div class="foot-base">
+        <span
+          >© <span id="year">2026</span> Northbound Games. A SideQuestDigital
+          studio.</span
+        >
+        <span>Made for the browser.</span>
+      </div>
+    </footer>
+
+    <canvas class="snow" id="snow" aria-hidden="true" hidden></canvas>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+  </body>
+</html>

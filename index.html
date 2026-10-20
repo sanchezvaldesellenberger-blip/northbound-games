@@ -6,20 +6,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Northbound Games · Game studio</title>
+    <title>Northbound Games | Browser Games &amp; Indie Game Studio</title>
     <meta
       name="description"
       content="Northbound Games is a game studio of SideQuestDigital. A portfolio of polished, instant-play browser games, plus the offline edition of Deadzone."
     />
     <meta name="theme-color" content="#090b11" />
-    <meta property="og:title" content="Northbound Games" />
-    <meta
-      property="og:description"
-      content="Northbound Games is a game studio making premium games for the web browser. Part of SideQuestDigital."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Northbound Games" />
-    <meta property="og:image" content="assets/brand/badge-cream.png" />
     <link rel="icon" href="assets/brand/favicon-64.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +30,7 @@
       })();
     </script>
     <script defer src="assets/js/core.js"></script>
+    <script defer src="assets/js/game-pages.js"></script>
     <script defer src="assets/js/games/polaris-drift.js"></script>
     <script defer src="assets/js/games/aurora-stack.js"></script>
     <script defer src="assets/js/games/glacier-breaker.js"></script>
@@ -48,6 +41,61 @@
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/leaderboard-config.js"></script>
     <script defer src="assets/js/leaderboards.js?v=20261013-live"></script>
+    <link rel="canonical" href="https://northboundgames.studio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Northbound Games" />
+    <meta
+      property="og:title"
+      content="Northbound Games | Browser Games &amp; Indie Game Studio"
+    />
+    <meta
+      property="og:description"
+      content="Northbound Games is a game studio of SideQuestDigital. A portfolio of polished, instant-play browser games, plus the offline edition of Deadzone."
+    />
+    <meta property="og:url" content="https://northboundgames.studio/" />
+    <meta
+      property="og:image"
+      content="https://northboundgames.studio/assets/brand/badge-cream.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Northbound Games | Browser Games &amp; Indie Game Studio"
+    />
+    <meta
+      name="twitter:description"
+      content="Northbound Games is a game studio of SideQuestDigital. A portfolio of polished, instant-play browser games, plus the offline edition of Deadzone."
+    />
+    <meta
+      name="twitter:image"
+      content="https://northboundgames.studio/assets/brand/badge-cream.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://northboundgames.studio/#studio",
+            "name": "Northbound Games",
+            "url": "https://northboundgames.studio",
+            "logo": "https://northboundgames.studio/assets/brand/badge-cream.png",
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "SideQuest",
+              "url": "https://sidequestdigital.net"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://northboundgames.studio/#website",
+            "name": "Northbound Games",
+            "url": "https://northboundgames.studio",
+            "publisher": { "@id": "https://northboundgames.studio/#studio" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <svg
@@ -456,7 +504,58 @@
         </div>
       </section>
     </main>
-
+    <!-- seo:arcade-guides:start -->
+    <section
+      class="section arcade-guides"
+      aria-labelledby="arcade-guides-heading"
+    >
+      <div class="wrap">
+        <p class="label">Explore the arcade</p>
+        <h2 id="arcade-guides-heading">Find your next game</h2>
+        <p>
+          Read about each game, learn the controls, and open it in your browser.
+        </p>
+        <ul class="guide-list">
+          <li>
+            <a href="polaris-drift.html"
+              ><strong>Polaris Drift</strong
+              ><span>Arcade action · How to play</span></a
+            >
+          </li>
+          <li>
+            <a href="aurora-stack.html"
+              ><strong>Aurora Stack</strong
+              ><span>One-tap arcade · How to play</span></a
+            >
+          </li>
+          <li>
+            <a href="prism-breaker.html"
+              ><strong>Prism Breaker</strong
+              ><span>Brick-breaking arcade · How to play</span></a
+            >
+          </li>
+          <li>
+            <a href="constellation.html"
+              ><strong>Constellation</strong
+              ><span>Memory puzzle · How to play</span></a
+            >
+          </li>
+          <li>
+            <a href="foxfire-run.html"
+              ><strong>Foxfire Run</strong
+              ><span>One-tap action · How to play</span></a
+            >
+          </li>
+          <li>
+            <a href="halo-orbit.html"
+              ><strong>Halo Orbit</strong
+              ><span>One-tap reflex · How to play</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- seo:arcade-guides:end -->
     <footer class="foot">
       <div class="foot-in">
         <div class="foot-brand">

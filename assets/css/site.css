@@ -984,7 +984,7 @@ kbd {
   padding: 22px 0 calc(26px + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--line);
   font-size: 0.8rem;
-  color: var(--text-3);
+  color: var(--text-2);
 }
 @media (max-width: 980px) {
   .foot-in {
@@ -2655,4 +2655,68 @@ kbd {
   .reveal.in {
     animation-name: fade;
   }
+}
+
+/* Searchable game guides follow the existing studio typography and sharp borders. */
+.guide-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+}
+.guide-list li {
+  border-bottom: 1px solid var(--line, #343638);
+}
+.guide-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 0;
+}
+.guide-list span {
+  color: var(--muted, #a9a6a0);
+  font-size: 0.85rem;
+}
+.arcade-guide h1 {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 1;
+  margin: 16px 0 24px;
+}
+.arcade-guide h2 {
+  margin-top: 32px;
+}
+.arcade-guide .actions {
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+.guide-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  margin: 32px 0;
+}
+.guide-controls {
+  margin: 20px 0;
+}
+.guide-controls div {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line, #343638);
+}
+.guide-controls dt {
+  font-weight: 700;
+}
+.guide-controls dd {
+  margin: 8px 0 0;
+}
+@media (max-width: 640px) {
+  .guide-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.page-body[data-page="arcade-guide"] .library {
+  padding-top: calc(var(--nav-h) + clamp(24px, 4vw, 48px));
 }

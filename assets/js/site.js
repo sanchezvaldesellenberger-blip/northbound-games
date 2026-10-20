@@ -392,6 +392,7 @@
       controls: d.controls,
       note: "",
       color: d.accent || "#f4eedb",
+      page: NB.gamePages && NB.gamePages[d.id],
     })),
   );
   function playGame(id) {
@@ -570,7 +571,10 @@
         $("span", play).textContent =
           it.kind === "flagship" ? "Play the offline edition" : "Play";
         const page = $("#info-page");
-        if (page) page.hidden = it.kind !== "flagship";
+        if (page) {
+          page.hidden = !it.page;
+          if (it.page) page.href = it.page;
+        }
       }
       function select(i, opts = {}) {
         i = clamp(i, 0, items.length - 1);
